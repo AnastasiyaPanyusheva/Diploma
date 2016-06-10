@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BeautySalon.Models.Поставщик>
+
+@{
+    ViewBag.Title = "Поставщики";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Поставщики</h2>
+
+<p>
+    @Html.ActionLink("Создать", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.НаименованиеПоставщик)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ТелефонПоставщик)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.АдресПоставщик)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.EmailПоставщик)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.НаименованиеПоставщик)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ТелефонПоставщик)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.АдресПоставщик)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailПоставщик)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditProvider", new { id = item.КодПоставщик }) |
+            @Html.ActionLink("Удалить", "DeleteProvider", new { id = item.КодПоставщик })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,32 @@
+﻿@model BeautySalon.Models.Должность
+
+@{
+    ViewBag.Title = "Удаление должности";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление должности</h2>
+
+<h3>Вы действительно хотите удалить должность?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Должность1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Должность1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Dol")
+        </div>
+    }
+</div>

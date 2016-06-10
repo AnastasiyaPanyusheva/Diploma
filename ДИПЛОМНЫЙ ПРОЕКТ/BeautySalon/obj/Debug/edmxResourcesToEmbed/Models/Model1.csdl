@@ -1,0 +1,1327 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="AnastasiaModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="Call">
+    <Key>
+      <PropertyRef Name="IdCall" />
+    </Key>
+    <Property Name="IdCall" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guestbook">
+    <Key>
+      <PropertyRef Name="IdGuest" />
+    </Key>
+    <Property Name="IdGuest" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Сообщение" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Дата" Type="DateTime" Nullable="false" Precision="3" />
+  </EntityType>
+  <EntityType Name="sysdiagram">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="principal_id" Type="Int32" Nullable="false" />
+    <Property Name="diagram_id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="version" Type="Int32" />
+    <Property Name="definition" Type="Binary" MaxLength="Max" FixedLength="false" />
+  </EntityType>
+  <EntityType Name="Акция">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодАкция" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НазваниеАкция" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаНачала" Type="DateTime" Precision="0" />
+    <Property Name="ДатаОкончания" Type="DateTime" Precision="0" />
+    <Property Name="Скидка" Type="Int32" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_Запись_Акция" FromRole="Акция" ToRole="Запись" />
+  </EntityType>
+  <EntityType Name="ГруппаМатериалов">
+    <Key>
+      <PropertyRef Name="КодГруппа" />
+    </Key>
+    <Property Name="КодГруппа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеГруппа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Материал" Relationship="Self.FK_Материал_ГруппаМатериалов" FromRole="ГруппаМатериалов" ToRole="Материал" />
+  </EntityType>
+  <EntityType Name="Должность">
+    <Key>
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Должность1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Тариф" Relationship="Self.FK_Тариф_Должность1" FromRole="Должность" ToRole="Тариф" />
+  </EntityType>
+  <EntityType Name="Запись">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="КодВремя" Type="Int32" />
+    <Property Name="КодКлиент" Type="Int32" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="КодАкция" Type="Int32" />
+    <Property Name="КодУслуга" Type="Int32" />
+    <NavigationProperty Name="Акция" Relationship="Self.FK_Запись_Акция" FromRole="Запись" ToRole="Акция" />
+    <NavigationProperty Name="Клиент" Relationship="Self.FK_Запись_Клиент" FromRole="Запись" ToRole="Клиент" />
+    <NavigationProperty Name="Сотрудник" Relationship="Self.FK_Запись_Сотрудник" FromRole="Запись" ToRole="Сотрудник" />
+    <NavigationProperty Name="ТаблицаВремени" Relationship="Self.FK_Запись_ТаблицаВремени" FromRole="Запись" ToRole="ТаблицаВремени" />
+    <NavigationProperty Name="Услуга" Relationship="Self.FK_Запись_Услуга" FromRole="Запись" ToRole="Услуга" />
+    <NavigationProperty Name="ОплатаУслуг" Relationship="Self.FK_ОплатаУслуг_Запись" FromRole="Запись" ToRole="ОплатаУслуг" />
+  </EntityType>
+  <EntityType Name="Заявка">
+    <Key>
+      <PropertyRef Name="КодЗаявки" />
+    </Key>
+    <Property Name="КодЗаявки" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Имя" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Дата" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="КодУслуга" Type="Int32" Nullable="false" />
+    <Property Name="Телефон" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+    <Property Name="Примечание" Type="String" MaxLength="1000" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Услуга" Relationship="Self.FK_Заявка_Услуга" FromRole="Заявка" ToRole="Услуга" />
+  </EntityType>
+  <EntityType Name="КатегорияУслуги">
+    <Key>
+      <PropertyRef Name="КодКатегория" />
+    </Key>
+    <Property Name="КодКатегория" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеКатегория" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Услуга" Relationship="Self.FK_Услуга_КатегорияУслуги" FromRole="КатегорияУслуги" ToRole="Услуга" />
+  </EntityType>
+  <EntityType Name="Клиент">
+    <Key>
+      <PropertyRef Name="КодКлиент" />
+    </Key>
+    <Property Name="КодКлиент" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Пол" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаРожденияКлиент" Type="DateTime" Precision="0" />
+    <Property Name="ТелефонКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаЗаполнения" Type="DateTime" Precision="0" />
+    <Property Name="ПримечаниеКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_Запись_Клиент" FromRole="Клиент" ToRole="Запись" />
+  </EntityType>
+  <EntityType Name="КтоЧемЗанимается">
+    <Key>
+      <PropertyRef Name="КодЧе" />
+    </Key>
+    <Property Name="КодЧе" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодДолжность" Type="Int32" />
+    <Property Name="КодКатегория" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Материал">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеМатериал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодГруппа" Type="Int32" />
+    <NavigationProperty Name="ГруппаМатериалов" Relationship="Self.FK_Материал_ГруппаМатериалов" FromRole="Материал" ToRole="ГруппаМатериалов" />
+    <NavigationProperty Name="Расход" Relationship="Self.FK_Расход_Материал" FromRole="Материал" ToRole="Расход" />
+    <NavigationProperty Name="СоставПрихода" Relationship="Self.FK_СоставПрихода_Материал" FromRole="Материал" ToRole="СоставПрихода" />
+  </EntityType>
+  <EntityType Name="ОплатаУслуг">
+    <Key>
+      <PropertyRef Name="КодОплата" />
+    </Key>
+    <Property Name="КодОплата" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодЗапись" Type="Int32" />
+    <Property Name="ОплатаКлиента" Type="Decimal" Precision="10" Scale="4" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_ОплатаУслуг_Запись" FromRole="ОплатаУслуг" ToRole="Запись" />
+  </EntityType>
+  <EntityType Name="Пользователь">
+    <Key>
+      <PropertyRef Name="КодПользователя" />
+    </Key>
+    <Property Name="КодПользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Пользователь1" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Пароль" Type="Int32" />
+  </EntityType>
+  <EntityType Name="Поставщик">
+    <Key>
+      <PropertyRef Name="КодПоставщик" />
+    </Key>
+    <Property Name="КодПоставщик" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ТелефонПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Приход" Relationship="Self.FK_Приход_Поставщик" FromRole="Поставщик" ToRole="Приход" />
+  </EntityType>
+  <EntityType Name="Приход">
+    <Key>
+      <PropertyRef Name="КодПриход" />
+    </Key>
+    <Property Name="КодПриход" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодПоставщик" Type="Int32" />
+    <Property Name="ДатаПриход" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Поставщик" Relationship="Self.FK_Приход_Поставщик" FromRole="Приход" ToRole="Поставщик" />
+    <NavigationProperty Name="СоставПрихода" Relationship="Self.FK_СоставПрихода_Приход" FromRole="Приход" ToRole="СоставПрихода" />
+  </EntityType>
+  <EntityType Name="Разряды">
+    <Key>
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодРазряд" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Разряд" Type="Int32" />
+    <NavigationProperty Name="Тариф" Relationship="Self.FK_Тариф_Разряды" FromRole="Разряды" ToRole="Тариф" />
+  </EntityType>
+  <EntityType Name="Расход">
+    <Key>
+      <PropertyRef Name="КодРасход" />
+    </Key>
+    <Property Name="КодРасход" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодМатериал" Type="Int32" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="КоличествоРасход" Type="Int32" />
+    <Property Name="ДатаРасход" Type="DateTime" Precision="0" />
+    <NavigationProperty Name="Материал" Relationship="Self.FK_Расход_Материал" FromRole="Расход" ToRole="Материал" />
+    <NavigationProperty Name="Сотрудник" Relationship="Self.FK_Расход_Сотрудник" FromRole="Расход" ToRole="Сотрудник" />
+  </EntityType>
+  <EntityType Name="СоставПрихода">
+    <Key>
+      <PropertyRef Name="КодЕдиницы" />
+    </Key>
+    <Property Name="КодЕдиницы" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодПриход" Type="Int32" />
+    <Property Name="КодМатериал" Type="Int32" />
+    <Property Name="КоличествоПриход" Type="Int32" />
+    <Property Name="ЦенаМатериал" Type="Decimal" Precision="10" Scale="4" />
+    <NavigationProperty Name="Материал" Relationship="Self.FK_СоставПрихода_Материал" FromRole="СоставПрихода" ToRole="Материал" />
+    <NavigationProperty Name="Приход" Relationship="Self.FK_СоставПрихода_Приход" FromRole="СоставПрихода" ToRole="Приход" />
+  </EntityType>
+  <EntityType Name="Сотрудник">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+    </Key>
+    <Property Name="КодСотрудник" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодТариф" Type="Int32" />
+    <Property Name="ТелефонСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаРожденияСотрудник" Type="DateTime" Precision="0" />
+    <Property Name="ПримечаниеСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_Запись_Сотрудник" FromRole="Сотрудник" ToRole="Запись" />
+    <NavigationProperty Name="Расход" Relationship="Self.FK_Расход_Сотрудник" FromRole="Сотрудник" ToRole="Расход" />
+    <NavigationProperty Name="Тариф" Relationship="Self.FK_Сотрудник_Тариф" FromRole="Сотрудник" ToRole="Тариф" />
+    <NavigationProperty Name="Табель" Relationship="Self.FK_Табель_Сотрудник" FromRole="Сотрудник" ToRole="Табель" />
+  </EntityType>
+  <EntityType Name="Табель">
+    <Key>
+      <PropertyRef Name="КодТабель" />
+    </Key>
+    <Property Name="КодТабель" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="ДатаВыхода" Type="DateTime" Precision="0" />
+    <Property Name="КоличествоОтработанныхЧасов" Type="Int32" />
+    <NavigationProperty Name="Сотрудник" Relationship="Self.FK_Табель_Сотрудник" FromRole="Табель" ToRole="Сотрудник" />
+  </EntityType>
+  <EntityType Name="ТаблицаВремени">
+    <Key>
+      <PropertyRef Name="КодВремя" />
+    </Key>
+    <Property Name="КодВремя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_Запись_ТаблицаВремени" FromRole="ТаблицаВремени" ToRole="Запись" />
+  </EntityType>
+  <EntityType Name="Тариф">
+    <Key>
+      <PropertyRef Name="КодТариф" />
+    </Key>
+    <Property Name="КодТариф" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодРазряд" Type="Int32" />
+    <Property Name="КодДолжность" Type="Int32" />
+    <Property Name="Ставка" Type="Decimal" Precision="10" Scale="4" />
+    <NavigationProperty Name="Должность" Relationship="Self.FK_Тариф_Должность1" FromRole="Тариф" ToRole="Должность" />
+    <NavigationProperty Name="Разряды" Relationship="Self.FK_Тариф_Разряды" FromRole="Тариф" ToRole="Разряды" />
+    <NavigationProperty Name="Сотрудник" Relationship="Self.FK_Сотрудник_Тариф" FromRole="Тариф" ToRole="Сотрудник" />
+  </EntityType>
+  <EntityType Name="Услуга">
+    <Key>
+      <PropertyRef Name="КодУслуга" />
+    </Key>
+    <Property Name="КодУслуга" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеУслуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодКатегория" Type="Int32" />
+    <Property Name="ЦенаУслуги" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Описание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="Запись" Relationship="Self.FK_Запись_Услуга" FromRole="Услуга" ToRole="Запись" />
+    <NavigationProperty Name="Заявка" Relationship="Self.FK_Заявка_Услуга" FromRole="Услуга" ToRole="Заявка" />
+    <NavigationProperty Name="КатегорияУслуги" Relationship="Self.FK_Услуга_КатегорияУслуги" FromRole="Услуга" ToRole="КатегорияУслуги" />
+  </EntityType>
+  <EntityType Name="АкцияЗапрос">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодАкция" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НазваниеАкция" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаНачала" Type="DateTime" Precision="0" />
+    <Property Name="ДатаОкончания" Type="DateTime" Precision="0" />
+    <Property Name="Скидка" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ГруппаМатериаловЗапрос">
+    <Key>
+      <PropertyRef Name="КодГруппа" />
+    </Key>
+    <Property Name="КодГруппа" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеГруппа" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ДОЛГклиента">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="Счет" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Оплачено" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Долг" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ДолжностьЗапрос">
+    <Key>
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Должность" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ЗаписьЗапрос">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="КодВремя" Type="Int32" />
+    <Property Name="КодКлиент" Type="Int32" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="КодАкция" Type="Int32" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Скидка" Type="Int32" />
+    <Property Name="НаименованиеУслуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ЗаписьЗапрос1">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="КодВремя" Type="Int32" />
+    <Property Name="КодКлиент" Type="Int32" />
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="КодАкция" Type="Int32" />
+  </EntityType>
+  <EntityType Name="КатегорияУслугиЗапрос">
+    <Key>
+      <PropertyRef Name="КодКатегория" />
+    </Key>
+    <Property Name="КодКатегория" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеКатегория" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="КлиентЗапрос">
+    <Key>
+      <PropertyRef Name="КодКлиент" />
+    </Key>
+    <Property Name="КодКлиент" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Пол" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаРожденияКлиент" Type="DateTime" Precision="0" />
+    <Property Name="ТелефонКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаЗаполнения" Type="DateTime" Precision="0" />
+    <Property Name="ПримечаниеКлиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="КтоЧемЗанимаетсяЗапрос">
+    <Key>
+      <PropertyRef Name="КодЧе" />
+    </Key>
+    <Property Name="КодЧе" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодДолжность" Type="Int32" />
+    <Property Name="КодКатегория" Type="Int32" />
+  </EntityType>
+  <EntityType Name="МастерЗаписи">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодСотрудник" Type="Int32" />
+  </EntityType>
+  <EntityType Name="МастерОказатьУслуги">
+    <Key>
+      <PropertyRef Name="КодОказаннаяУслуга" />
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодОказаннаяУслуга" Type="Int32" Nullable="false" />
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="НаименованиеУслуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодСотрудник" Type="Int32" />
+  </EntityType>
+  <EntityType Name="МатериалЗапрос">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеМатериал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодГруппа" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ОказУслугиЗапрос">
+    <Key>
+      <PropertyRef Name="КодОказаннаяУслуга" />
+    </Key>
+    <Property Name="КодОказаннаяУслуга" Type="Int32" Nullable="false" />
+    <Property Name="КодЗапись" Type="Int32" />
+    <Property Name="КодУслуга" Type="Int32" />
+    <Property Name="НаименованиеУслуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="СтоимостьУслуг" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="КодАкция" Type="Int32" Nullable="false" />
+    <Property Name="Скидка" Type="Int32" />
+    <Property Name="ОкончательнаяСтоимость1" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ОплатаУслугЗапрос">
+    <Key>
+      <PropertyRef Name="КодОплата" />
+    </Key>
+    <Property Name="КодОплата" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодЗапись" Type="Int32" />
+    <Property Name="ОплатаКлиента" Type="Double" />
+  </EntityType>
+  <EntityType Name="ОПЛАЧЕНОклиентом">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="Int32" Nullable="false" />
+    <Property Name="Счет" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Оплачено" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="Остаток">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="Int32" Nullable="false" />
+    <Property Name="НаименованиеМатериал" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="СуммаПрихода" Type="Int32" />
+    <Property Name="СуммаРасхода" Type="Int32" />
+    <Property Name="Остаток1" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ОТЧЕТпоАкции">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="СтоимостьУслуг" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Скидка" Type="Int32" />
+    <Property Name="ОкончательнаяСтоимость" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="КодАкция" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ОТЧЕТпоСотруднику">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+    </Key>
+    <Property Name="КодСотрудник" Type="Int32" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Должность" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Разряд" Type="Int32" />
+    <Property Name="Ставка" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="ДатаЗапись" Type="DateTime" Precision="0" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+    <Property Name="ФИОклиент" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="СтоимостьУслуг" Type="Decimal" Precision="19" Scale="4" />
+    <Property Name="Скидка" Type="Int32" />
+    <Property Name="ОкончательнаяСтоимость" Type="Decimal" Precision="19" Scale="4" />
+  </EntityType>
+  <EntityType Name="ПолучитьДолжностьСотрудника">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодСотрудник" Type="Int32" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="ПользовательЗапрос">
+    <Key>
+      <PropertyRef Name="КодПользователя" />
+    </Key>
+    <Property Name="КодПользователя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Пользователь" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Пароль" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ПоставщикЗапрос">
+    <Key>
+      <PropertyRef Name="КодПоставщик" />
+    </Key>
+    <Property Name="КодПоставщик" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ТелефонПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="EmailПоставщик" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ПриходЗапрос">
+    <Key>
+      <PropertyRef Name="КодПриход" />
+    </Key>
+    <Property Name="КодПриход" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодПоставщик" Type="Int32" />
+    <Property Name="ДатаПриход" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="РазрядЗапрос">
+    <Key>
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодРазряд" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Разряд" Type="Int32" />
+  </EntityType>
+  <EntityType Name="РасходЗапрос">
+    <Key>
+      <PropertyRef Name="КодРасход" />
+    </Key>
+    <Property Name="КодРасход" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодМатериал" Type="Int32" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="КоличествоРасход" Type="Int32" />
+    <Property Name="ДатаРасход" Type="DateTime" Precision="0" />
+  </EntityType>
+  <EntityType Name="СоставПриходаЗапрос">
+    <Key>
+      <PropertyRef Name="КодЕдиницы" />
+    </Key>
+    <Property Name="КодЕдиницы" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодПриход" Type="Int32" />
+    <Property Name="КодМатериал" Type="Int32" />
+    <Property Name="КоличествоПриход" Type="Int32" />
+    <Property Name="ЦенаМатериал" Type="Decimal" Precision="10" Scale="4" />
+  </EntityType>
+  <EntityType Name="СотрЗапрос">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодСотрудник" Type="Int32" Nullable="false" />
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" />
+  </EntityType>
+  <EntityType Name="СотрудникЗапрос">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодСотрудник" Type="Int32" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодТариф" Type="Int32" />
+    <Property Name="ТелефонСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="АдресСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ДатаРожденияСотрудник" Type="DateTime" Precision="0" />
+    <Property Name="ПримечаниеСотрудник" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Должность" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Разряд" Type="Int32" />
+    <Property Name="КодДолжность" Type="Int32" Nullable="false" />
+    <Property Name="КодРазряд" Type="Int32" Nullable="false" />
+    <Property Name="Ставка" Type="Decimal" Precision="10" Scale="4" />
+  </EntityType>
+  <EntityType Name="ТабельЗапрос">
+    <Key>
+      <PropertyRef Name="КодТабель" />
+    </Key>
+    <Property Name="КодТабель" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодСотрудник" Type="Int32" />
+    <Property Name="ДатаВыхода" Type="DateTime" Precision="0" />
+    <Property Name="КоличествоОтработанныхЧасов" Type="Int32" />
+  </EntityType>
+  <EntityType Name="ТаблицаВремениЗапрос">
+    <Key>
+      <PropertyRef Name="КодВремя" />
+    </Key>
+    <Property Name="КодВремя" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="ЗначениеВремя" Type="String" MaxLength="10" FixedLength="true" Unicode="true" />
+  </EntityType>
+  <EntityType Name="ТарифЗапрос">
+    <Key>
+      <PropertyRef Name="КодТариф" />
+    </Key>
+    <Property Name="КодТариф" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="КодРазряд" Type="Int32" />
+    <Property Name="КодДолжность" Type="Int32" />
+    <Property Name="Ставка" Type="Decimal" Precision="10" Scale="4" />
+  </EntityType>
+  <EntityType Name="УслугаЗапрос">
+    <Key>
+      <PropertyRef Name="КодУслуга" />
+    </Key>
+    <Property Name="КодУслуга" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="НаименованиеУслуга" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="КодКатегория" Type="Int32" />
+    <Property Name="ЦенаУслуги" Type="Decimal" Precision="10" Scale="4" />
+    <Property Name="Описание" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <Association Name="FK_Запись_Акция">
+    <End Role="Акция" Type="Self.Акция" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Акция">
+        <PropertyRef Name="КодАкция" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодАкция" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Материал_ГруппаМатериалов">
+    <End Role="ГруппаМатериалов" Type="Self.ГруппаМатериалов" Multiplicity="0..1" />
+    <End Role="Материал" Type="Self.Материал" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ГруппаМатериалов">
+        <PropertyRef Name="КодГруппа" />
+      </Principal>
+      <Dependent Role="Материал">
+        <PropertyRef Name="КодГруппа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Тариф_Должность1">
+    <End Role="Должность" Type="Self.Должность" Multiplicity="0..1" />
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Должность">
+        <PropertyRef Name="КодДолжность" />
+      </Principal>
+      <Dependent Role="Тариф">
+        <PropertyRef Name="КодДолжность" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Клиент">
+    <End Role="Клиент" Type="Self.Клиент" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиент">
+        <PropertyRef Name="КодКлиент" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодКлиент" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_ТаблицаВремени">
+    <End Role="ТаблицаВремени" Type="Self.ТаблицаВремени" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ТаблицаВремени">
+        <PropertyRef Name="КодВремя" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодВремя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Услуга">
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуга">
+        <PropertyRef Name="КодУслуга" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодУслуга" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОплатаУслуг_Запись">
+    <End Role="Запись" Type="Self.Запись" Multiplicity="0..1" />
+    <End Role="ОплатаУслуг" Type="Self.ОплатаУслуг" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Запись">
+        <PropertyRef Name="КодЗапись" />
+      </Principal>
+      <Dependent Role="ОплатаУслуг">
+        <PropertyRef Name="КодЗапись" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заявка_Услуга">
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="1" />
+    <End Role="Заявка" Type="Self.Заявка" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуга">
+        <PropertyRef Name="КодУслуга" />
+      </Principal>
+      <Dependent Role="Заявка">
+        <PropertyRef Name="КодУслуга" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Услуга_КатегорияУслуги">
+    <End Role="КатегорияУслуги" Type="Self.КатегорияУслуги" Multiplicity="0..1" />
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="КатегорияУслуги">
+        <PropertyRef Name="КодКатегория" />
+      </Principal>
+      <Dependent Role="Услуга">
+        <PropertyRef Name="КодКатегория" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Расход_Материал">
+    <End Role="Материал" Type="Self.Материал" Multiplicity="0..1" />
+    <End Role="Расход" Type="Self.Расход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Материал">
+        <PropertyRef Name="КодМатериал" />
+      </Principal>
+      <Dependent Role="Расход">
+        <PropertyRef Name="КодМатериал" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СоставПрихода_Материал">
+    <End Role="Материал" Type="Self.Материал" Multiplicity="0..1" />
+    <End Role="СоставПрихода" Type="Self.СоставПрихода" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Материал">
+        <PropertyRef Name="КодМатериал" />
+      </Principal>
+      <Dependent Role="СоставПрихода">
+        <PropertyRef Name="КодМатериал" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Приход_Поставщик">
+    <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="0..1" />
+    <End Role="Приход" Type="Self.Приход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Поставщик">
+        <PropertyRef Name="КодПоставщик" />
+      </Principal>
+      <Dependent Role="Приход">
+        <PropertyRef Name="КодПоставщик" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СоставПрихода_Приход">
+    <End Role="Приход" Type="Self.Приход" Multiplicity="0..1" />
+    <End Role="СоставПрихода" Type="Self.СоставПрихода" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Приход">
+        <PropertyRef Name="КодПриход" />
+      </Principal>
+      <Dependent Role="СоставПрихода">
+        <PropertyRef Name="КодПриход" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Тариф_Разряды">
+    <End Role="Разряды" Type="Self.Разряды" Multiplicity="0..1" />
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Разряды">
+        <PropertyRef Name="КодРазряд" />
+      </Principal>
+      <Dependent Role="Тариф">
+        <PropertyRef Name="КодРазряд" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Расход_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Расход" Type="Self.Расход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Расход">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сотрудник_Тариф">
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="0..1" />
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Тариф">
+        <PropertyRef Name="КодТариф" />
+      </Principal>
+      <Dependent Role="Сотрудник">
+        <PropertyRef Name="КодТариф" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Табель_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Табель" Type="Self.Табель" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Табель">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="AnastasiaEntities1" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Calls" EntityType="Self.Call" />
+    <EntitySet Name="Guestbooks" EntityType="Self.Guestbook" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagram" />
+    <EntitySet Name="Акция" EntityType="Self.Акция" />
+    <EntitySet Name="ГруппаМатериалов" EntityType="Self.ГруппаМатериалов" />
+    <EntitySet Name="Должность" EntityType="Self.Должность" />
+    <EntitySet Name="Запись" EntityType="Self.Запись" />
+    <EntitySet Name="Заявка" EntityType="Self.Заявка" />
+    <EntitySet Name="КатегорияУслуги" EntityType="Self.КатегорияУслуги" />
+    <EntitySet Name="Клиент" EntityType="Self.Клиент" />
+    <EntitySet Name="КтоЧемЗанимается" EntityType="Self.КтоЧемЗанимается" />
+    <EntitySet Name="Материал" EntityType="Self.Материал" />
+    <EntitySet Name="ОплатаУслуг" EntityType="Self.ОплатаУслуг" />
+    <EntitySet Name="Пользователь" EntityType="Self.Пользователь" />
+    <EntitySet Name="Поставщик" EntityType="Self.Поставщик" />
+    <EntitySet Name="Приход" EntityType="Self.Приход" />
+    <EntitySet Name="Разряды" EntityType="Self.Разряды" />
+    <EntitySet Name="Расход" EntityType="Self.Расход" />
+    <EntitySet Name="СоставПрихода" EntityType="Self.СоставПрихода" />
+    <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" />
+    <EntitySet Name="Табель" EntityType="Self.Табель" />
+    <EntitySet Name="ТаблицаВремени" EntityType="Self.ТаблицаВремени" />
+    <EntitySet Name="Тариф" EntityType="Self.Тариф" />
+    <EntitySet Name="Услуга" EntityType="Self.Услуга" />
+    <EntitySet Name="АкцияЗапрос" EntityType="Self.АкцияЗапрос" />
+    <EntitySet Name="ГруппаМатериаловЗапрос" EntityType="Self.ГруппаМатериаловЗапрос" />
+    <EntitySet Name="ДОЛГклиента" EntityType="Self.ДОЛГклиента" />
+    <EntitySet Name="ДолжностьЗапрос" EntityType="Self.ДолжностьЗапрос" />
+    <EntitySet Name="ЗаписьЗапрос" EntityType="Self.ЗаписьЗапрос" />
+    <EntitySet Name="ЗаписьЗапрос1" EntityType="Self.ЗаписьЗапрос1" />
+    <EntitySet Name="КатегорияУслугиЗапрос" EntityType="Self.КатегорияУслугиЗапрос" />
+    <EntitySet Name="КлиентЗапрос" EntityType="Self.КлиентЗапрос" />
+    <EntitySet Name="КтоЧемЗанимаетсяЗапрос" EntityType="Self.КтоЧемЗанимаетсяЗапрос" />
+    <EntitySet Name="МастерЗаписи" EntityType="Self.МастерЗаписи" />
+    <EntitySet Name="МастерОказатьУслуги" EntityType="Self.МастерОказатьУслуги" />
+    <EntitySet Name="МатериалЗапрос" EntityType="Self.МатериалЗапрос" />
+    <EntitySet Name="ОказУслугиЗапрос" EntityType="Self.ОказУслугиЗапрос" />
+    <EntitySet Name="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" EntityType="Self.ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" />
+    <EntitySet Name="ОплатаУслугЗапрос" EntityType="Self.ОплатаУслугЗапрос" />
+    <EntitySet Name="ОПЛАЧЕНОклиентом" EntityType="Self.ОПЛАЧЕНОклиентом" />
+    <EntitySet Name="Остаток" EntityType="Self.Остаток" />
+    <EntitySet Name="ОТЧЕТпоАкции" EntityType="Self.ОТЧЕТпоАкции" />
+    <EntitySet Name="ОТЧЕТпоСотруднику" EntityType="Self.ОТЧЕТпоСотруднику" />
+    <EntitySet Name="ПолучитьДолжностьСотрудника" EntityType="Self.ПолучитьДолжностьСотрудника" />
+    <EntitySet Name="ПользовательЗапрос" EntityType="Self.ПользовательЗапрос" />
+    <EntitySet Name="ПоставщикЗапрос" EntityType="Self.ПоставщикЗапрос" />
+    <EntitySet Name="ПриходЗапрос" EntityType="Self.ПриходЗапрос" />
+    <EntitySet Name="РазрядЗапрос" EntityType="Self.РазрядЗапрос" />
+    <EntitySet Name="РасходЗапрос" EntityType="Self.РасходЗапрос" />
+    <EntitySet Name="СоставПриходаЗапрос" EntityType="Self.СоставПриходаЗапрос" />
+    <EntitySet Name="СотрЗапрос" EntityType="Self.СотрЗапрос" />
+    <EntitySet Name="СотрудникЗапрос" EntityType="Self.СотрудникЗапрос" />
+    <EntitySet Name="ТабельЗапрос" EntityType="Self.ТабельЗапрос" />
+    <EntitySet Name="ТаблицаВремениЗапрос" EntityType="Self.ТаблицаВремениЗапрос" />
+    <EntitySet Name="ТарифЗапрос" EntityType="Self.ТарифЗапрос" />
+    <EntitySet Name="УслугаЗапрос" EntityType="Self.УслугаЗапрос" />
+    <AssociationSet Name="FK_Запись_Акция" Association="Self.FK_Запись_Акция">
+      <End Role="Акция" EntitySet="Акция" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Материал_ГруппаМатериалов" Association="Self.FK_Материал_ГруппаМатериалов">
+      <End Role="ГруппаМатериалов" EntitySet="ГруппаМатериалов" />
+      <End Role="Материал" EntitySet="Материал" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Тариф_Должность1" Association="Self.FK_Тариф_Должность1">
+      <End Role="Должность" EntitySet="Должность" />
+      <End Role="Тариф" EntitySet="Тариф" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Клиент" Association="Self.FK_Запись_Клиент">
+      <End Role="Клиент" EntitySet="Клиент" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Сотрудник" Association="Self.FK_Запись_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_ТаблицаВремени" Association="Self.FK_Запись_ТаблицаВремени">
+      <End Role="ТаблицаВремени" EntitySet="ТаблицаВремени" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Услуга" Association="Self.FK_Запись_Услуга">
+      <End Role="Услуга" EntitySet="Услуга" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОплатаУслуг_Запись" Association="Self.FK_ОплатаУслуг_Запись">
+      <End Role="Запись" EntitySet="Запись" />
+      <End Role="ОплатаУслуг" EntitySet="ОплатаУслуг" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заявка_Услуга" Association="Self.FK_Заявка_Услуга">
+      <End Role="Услуга" EntitySet="Услуга" />
+      <End Role="Заявка" EntitySet="Заявка" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Услуга_КатегорияУслуги" Association="Self.FK_Услуга_КатегорияУслуги">
+      <End Role="КатегорияУслуги" EntitySet="КатегорияУслуги" />
+      <End Role="Услуга" EntitySet="Услуга" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Расход_Материал" Association="Self.FK_Расход_Материал">
+      <End Role="Материал" EntitySet="Материал" />
+      <End Role="Расход" EntitySet="Расход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СоставПрихода_Материал" Association="Self.FK_СоставПрихода_Материал">
+      <End Role="Материал" EntitySet="Материал" />
+      <End Role="СоставПрихода" EntitySet="СоставПрихода" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Приход_Поставщик" Association="Self.FK_Приход_Поставщик">
+      <End Role="Поставщик" EntitySet="Поставщик" />
+      <End Role="Приход" EntitySet="Приход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СоставПрихода_Приход" Association="Self.FK_СоставПрихода_Приход">
+      <End Role="Приход" EntitySet="Приход" />
+      <End Role="СоставПрихода" EntitySet="СоставПрихода" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Тариф_Разряды" Association="Self.FK_Тариф_Разряды">
+      <End Role="Разряды" EntitySet="Разряды" />
+      <End Role="Тариф" EntitySet="Тариф" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Расход_Сотрудник" Association="Self.FK_Расход_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Расход" EntitySet="Расход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сотрудник_Тариф" Association="Self.FK_Сотрудник_Тариф">
+      <End Role="Тариф" EntitySet="Тариф" />
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Табель_Сотрудник" Association="Self.FK_Табель_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Табель" EntitySet="Табель" />
+    </AssociationSet>
+    <FunctionImport Name="SelectWithParam" ReturnType="Collection(AnastasiaModel.SelectWithParam_Result)">
+      <Parameter Name="Param1" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="SelectWithParams" ReturnType="Collection(AnastasiaModel.SelectWithParams_Result)">
+      <Parameter Name="Param1" Mode="In" Type="DateTime" />
+      <Parameter Name="Param2" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_alterdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_creatediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="version" Mode="In" Type="Int32" />
+      <Parameter Name="definition" Mode="In" Type="Binary" />
+    </FunctionImport>
+    <FunctionImport Name="sp_dropdiagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagramdefinition" ReturnType="Collection(AnastasiaModel.sp_helpdiagramdefinition_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_helpdiagrams" ReturnType="Collection(AnastasiaModel.sp_helpdiagrams_Result)">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="sp_renamediagram">
+      <Parameter Name="diagramname" Mode="In" Type="String" />
+      <Parameter Name="owner_id" Mode="In" Type="Int32" />
+      <Parameter Name="new_diagramname" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="sp_upgraddiagrams" />
+    <FunctionImport Name="ВыручкаПоСотруднику" ReturnType="Collection(AnastasiaModel.ВыручкаПоСотруднику_Result)">
+      <Parameter Name="Param1" Mode="In" Type="DateTime" />
+      <Parameter Name="Param2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьАкция">
+      <Parameter Name="НазваниеАкция" Mode="In" Type="String" />
+      <Parameter Name="ДатаНачала" Mode="In" Type="DateTime" />
+      <Parameter Name="ДатаОкончания" Mode="In" Type="DateTime" />
+      <Parameter Name="Скидка" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьГруппаМатериалов">
+      <Parameter Name="НаименованиеГруппа" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьДолжность">
+      <Parameter Name="Должность" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьЗапись">
+      <Parameter Name="ДатаЗапись" Mode="In" Type="DateTime" />
+      <Parameter Name="КодВремя" Mode="In" Type="Int32" />
+      <Parameter Name="КодКлиент" Mode="In" Type="Int32" />
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="КодАкция" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьКатегорияУслуги">
+      <Parameter Name="НаименованиеКатегория" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьКлиент">
+      <Parameter Name="ФИОклиент" Mode="In" Type="String" />
+      <Parameter Name="Пол" Mode="In" Type="String" />
+      <Parameter Name="ДатаРожденияКлиент" Mode="In" Type="DateTime" />
+      <Parameter Name="ТелефонКлиент" Mode="In" Type="String" />
+      <Parameter Name="АдресКлиент" Mode="In" Type="String" />
+      <Parameter Name="EmailКлиент" Mode="In" Type="String" />
+      <Parameter Name="ДатаЗаполнения" Mode="In" Type="DateTime" />
+      <Parameter Name="ПримечаниеКлиент" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьКтоЧемЗанимается">
+      <Parameter Name="КодДолжность" Mode="In" Type="Int32" />
+      <Parameter Name="КодКатегория" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьМатериал">
+      <Parameter Name="НаименованиеМатериал" Mode="In" Type="String" />
+      <Parameter Name="КодГруппа" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьОказанныеУслуги">
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+      <Parameter Name="КодУслуга" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьОплата">
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+      <Parameter Name="ОплатаКлиента" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьПользователь">
+      <Parameter Name="Пользователь" Mode="In" Type="String" />
+      <Parameter Name="Пароль" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьПоставщик">
+      <Parameter Name="НаименованиеПоставщик" Mode="In" Type="String" />
+      <Parameter Name="ТелефонПоставщик" Mode="In" Type="String" />
+      <Parameter Name="АдресПоставщик" Mode="In" Type="String" />
+      <Parameter Name="EmailПоставщик" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьПриход">
+      <Parameter Name="КодПоставщик" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаПриход" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьРазряды">
+      <Parameter Name="Разряд" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьРасход">
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="КоличествоРасход" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаРасход" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьСоставПрихода">
+      <Parameter Name="КодПриход" Mode="In" Type="Int32" />
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+      <Parameter Name="КоличествоПриход" Mode="In" Type="Int32" />
+      <Parameter Name="ЦенаМатериал" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьСотрудник">
+      <Parameter Name="ФИОсотрудник" Mode="In" Type="String" />
+      <Parameter Name="КодТариф" Mode="In" Type="Int32" />
+      <Parameter Name="ТелефонСотрудник" Mode="In" Type="String" />
+      <Parameter Name="АдресСотрудник" Mode="In" Type="String" />
+      <Parameter Name="ДатаРожденияСотрудник" Mode="In" Type="DateTime" />
+      <Parameter Name="ПримечаниеСотрудник" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьТабель">
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаВыхода" Mode="In" Type="DateTime" />
+      <Parameter Name="КоличествоОтработанныхЧасов" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьТаблицаВремени">
+      <Parameter Name="ЗначениеВремя" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьТариф">
+      <Parameter Name="КодРазряд" Mode="In" Type="Int32" />
+      <Parameter Name="КодДолжность" Mode="In" Type="Int32" />
+      <Parameter Name="Ставка" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ДобавитьУслуга">
+      <Parameter Name="НаименованиеУслуга" Mode="In" Type="String" />
+      <Parameter Name="КодКатегория" Mode="In" Type="Int32" />
+      <Parameter Name="ЦенаУслуги" Mode="In" Type="Decimal" />
+      <Parameter Name="Описание" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ЗАРПЛАТАзаМесяц" ReturnType="Collection(AnastasiaModel.ЗАРПЛАТАзаМесяц_Result)">
+      <Parameter Name="Month" Mode="In" Type="Int32" />
+      <Parameter Name="Year" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьАкция">
+      <Parameter Name="КодАкция" Mode="In" Type="Int32" />
+      <Parameter Name="НазваниеАкция" Mode="In" Type="String" />
+      <Parameter Name="ДатаНачала" Mode="In" Type="DateTime" />
+      <Parameter Name="ДатаОкончания" Mode="In" Type="DateTime" />
+      <Parameter Name="Скидка" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьГруппаМатериалов">
+      <Parameter Name="КодГруппа" Mode="In" Type="Int32" />
+      <Parameter Name="НаименованиеГруппа" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьДолжность">
+      <Parameter Name="КодДолжность" Mode="In" Type="Int32" />
+      <Parameter Name="Должность" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьЗапись">
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаЗапись" Mode="In" Type="DateTime" />
+      <Parameter Name="КодВремя" Mode="In" Type="Int32" />
+      <Parameter Name="КодКлиент" Mode="In" Type="Int32" />
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="КодАкция" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьКатегорияУслуги">
+      <Parameter Name="КодКатегория" Mode="In" Type="Int32" />
+      <Parameter Name="НаименованиеКатегория" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьКлиент">
+      <Parameter Name="КодКлиент" Mode="In" Type="Int32" />
+      <Parameter Name="ФИОклиент" Mode="In" Type="String" />
+      <Parameter Name="Пол" Mode="In" Type="String" />
+      <Parameter Name="ДатаРожденияКлиент" Mode="In" Type="DateTime" />
+      <Parameter Name="ТелефонКлиент" Mode="In" Type="String" />
+      <Parameter Name="АдресКлиент" Mode="In" Type="String" />
+      <Parameter Name="EmailКлиент" Mode="In" Type="String" />
+      <Parameter Name="ДатаЗаполнения" Mode="In" Type="DateTime" />
+      <Parameter Name="ПримечаниеКлиент" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьМатериал">
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+      <Parameter Name="НаименованиеМатериал" Mode="In" Type="String" />
+      <Parameter Name="КодГруппа" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьОказанныеУслуги">
+      <Parameter Name="КодОказаннаяУслуга" Mode="In" Type="Int32" />
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+      <Parameter Name="КодУслуга" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьОплата">
+      <Parameter Name="КодОплата" Mode="In" Type="Int32" />
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+      <Parameter Name="ОплатаКлиента" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьПользователь">
+      <Parameter Name="КодПользователя" Mode="In" Type="Int32" />
+      <Parameter Name="Пользователь" Mode="In" Type="String" />
+      <Parameter Name="Пароль" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьПоставщик">
+      <Parameter Name="КодПоставщик" Mode="In" Type="Int32" />
+      <Parameter Name="НаименованиеПоставщик" Mode="In" Type="String" />
+      <Parameter Name="ТелефонПоставщик" Mode="In" Type="String" />
+      <Parameter Name="АдресПоставщик" Mode="In" Type="String" />
+      <Parameter Name="EmailПоставщик" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьПриход">
+      <Parameter Name="КодПриход" Mode="In" Type="Int32" />
+      <Parameter Name="КодПоставщик" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаПриход" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьРазряды">
+      <Parameter Name="КодРазряд" Mode="In" Type="Int32" />
+      <Parameter Name="Разряд" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьРасход">
+      <Parameter Name="КодРасход" Mode="In" Type="Int32" />
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="КоличествоРасход" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаРасход" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьСоставПрихода">
+      <Parameter Name="КодЕдиницы" Mode="In" Type="Int32" />
+      <Parameter Name="КодПриход" Mode="In" Type="Int32" />
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+      <Parameter Name="КоличествоПриход" Mode="In" Type="Int32" />
+      <Parameter Name="ЦенаМатериал" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьСотрудник">
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="ФИОсотрудник" Mode="In" Type="String" />
+      <Parameter Name="КодТариф" Mode="In" Type="Int32" />
+      <Parameter Name="ТелефонСотрудник" Mode="In" Type="String" />
+      <Parameter Name="АдресСотрудник" Mode="In" Type="String" />
+      <Parameter Name="ДатаРожденияСотрудник" Mode="In" Type="DateTime" />
+      <Parameter Name="ПримечаниеСотрудник" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьТабель">
+      <Parameter Name="КодТабель" Mode="In" Type="Int32" />
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+      <Parameter Name="ДатаВыхода" Mode="In" Type="DateTime" />
+      <Parameter Name="КоличествоОтработанныхЧасов" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьТаблицаВремени">
+      <Parameter Name="КодВремя" Mode="In" Type="Int32" />
+      <Parameter Name="ЗначениеВремя" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьТариф">
+      <Parameter Name="КодТариф" Mode="In" Type="Int32" />
+      <Parameter Name="КодРазряд" Mode="In" Type="Int32" />
+      <Parameter Name="КодДолжность" Mode="In" Type="Int32" />
+      <Parameter Name="Ставка" Mode="In" Type="Decimal" />
+    </FunctionImport>
+    <FunctionImport Name="ИзменитьУслуга">
+      <Parameter Name="КодУслуга" Mode="In" Type="Int32" />
+      <Parameter Name="НаименованиеУслуга" Mode="In" Type="String" />
+      <Parameter Name="КодКатегория" Mode="In" Type="Int32" />
+      <Parameter Name="ЦенаУслуги" Mode="In" Type="Decimal" />
+      <Parameter Name="Описание" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="КарточкаКлиента" ReturnType="Collection(AnastasiaModel.КарточкаКлиента_Result)">
+      <Parameter Name="Param1" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="КоличествоКлиентов" ReturnType="Collection(AnastasiaModel.КоличествоКлиентов_Result)">
+      <Parameter Name="Param1" Mode="In" Type="DateTime" />
+      <Parameter Name="Param2" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ПолныйОтчетСотрудник" ReturnType="Collection(AnastasiaModel.ПолныйОтчетСотрудник_Result)">
+      <Parameter Name="Param1" Mode="In" Type="String" />
+      <Parameter Name="Param2" Mode="In" Type="DateTime" />
+      <Parameter Name="Param3" Mode="In" Type="DateTime" />
+    </FunctionImport>
+    <FunctionImport Name="ПолныйОтчетСотрудник2" ReturnType="Collection(AnastasiaModel.ПолныйОтчетСотрудник2_Result)">
+      <Parameter Name="Param1" Mode="In" Type="String" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьАкция">
+      <Parameter Name="КодАкция" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьГруппаМатериалов">
+      <Parameter Name="КодГруппа" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьДолжность">
+      <Parameter Name="КодДолжность" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьЗапись">
+      <Parameter Name="КодЗапись" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьКатегорияУслуги">
+      <Parameter Name="КодКатегория" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьКлиент">
+      <Parameter Name="КодКлиент" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьМатериал">
+      <Parameter Name="КодМатериал" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьОказанныеУслуги">
+      <Parameter Name="КодОказаннаяУслуга" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьОплата">
+      <Parameter Name="КодОплата" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьПользователь">
+      <Parameter Name="КодПользователя" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьПоставщик">
+      <Parameter Name="КодПоставщик" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьПриход">
+      <Parameter Name="КодПриход" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьРазряды">
+      <Parameter Name="КодРазряд" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьРасход">
+      <Parameter Name="КодРасход" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьСоставПрихода">
+      <Parameter Name="КодЕдиницы" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьСотрудник">
+      <Parameter Name="КодСотрудник" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьТабель">
+      <Parameter Name="КодТабель" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьТаблицаВремени">
+      <Parameter Name="КодВремя" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьТариф">
+      <Parameter Name="КодТариф" Mode="In" Type="Int32" />
+    </FunctionImport>
+    <FunctionImport Name="УдалитьУслуга">
+      <Parameter Name="КодУслуга" Mode="In" Type="Int32" />
+    </FunctionImport>
+  </EntityContainer>
+  <ComplexType Name="SelectWithParam_Result">
+    <Property Type="Int32" Name="КодВремя" Nullable="false" />
+    <Property Type="String" Name="ЗначениеВремя" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="SelectWithParams_Result">
+    <Property Type="Int32" Name="КодВремя" Nullable="false" />
+    <Property Type="String" Name="ЗначениеВремя" Nullable="true" MaxLength="10" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagramdefinition_Result">
+    <Property Type="Int32" Name="version" Nullable="true" />
+    <Property Type="Binary" Name="definition" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_helpdiagrams_Result">
+    <Property Type="String" Name="Database" Nullable="true" MaxLength="128" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="128" />
+    <Property Type="Int32" Name="ID" Nullable="false" />
+    <Property Type="String" Name="Owner" Nullable="true" MaxLength="128" />
+    <Property Type="Int32" Name="OwnerID" Nullable="false" />
+  </ComplexType>
+  <ComplexType Name="ВыручкаПоСотруднику_Result">
+    <Property Type="String" Name="Сотрудник" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Должность" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Общая_выручка" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="ЗАРПЛАТАзаМесяц_Result">
+    <Property Type="String" Name="ФИОсотрудник" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="Zp" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="КарточкаКлиента_Result">
+    <Property Type="DateTime" Name="ДатаЗапись" Nullable="true" />
+    <Property Type="String" Name="НаименованиеУслуга" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="ЦенаУслуги" Nullable="true" Precision="10" />
+  </ComplexType>
+  <ComplexType Name="КоличествоКлиентов_Result">
+    <Property Type="String" Name="Сотрудник" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Клиентов" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="ПолныйОтчетСотрудник_Result">
+    <Property Type="Int32" Name="КодСотрудник" Nullable="false" />
+    <Property Type="String" Name="ФИОсотрудник" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="Должность" Nullable="true" MaxLength="50" />
+    <Property Type="Int32" Name="Разряд" Nullable="true" />
+    <Property Type="Decimal" Name="Ставка" Nullable="true" Precision="10" />
+    <Property Type="DateTime" Name="ДатаЗапись" Nullable="true" />
+    <Property Type="String" Name="ЗначениеВремя" Nullable="true" MaxLength="10" />
+    <Property Type="String" Name="ФИОклиент" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="СтоимостьУслуг" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="Скидка" Nullable="true" />
+    <Property Type="Decimal" Name="ОкончательнаяСтоимость" Nullable="true" Precision="19" />
+  </ComplexType>
+  <ComplexType Name="ПолныйОтчетСотрудник2_Result">
+    <Property Type="DateTime" Name="ДатаЗапись" Nullable="true" />
+    <Property Type="String" Name="ФИОклиент" Nullable="true" MaxLength="50" />
+    <Property Type="Decimal" Name="СтоимостьУслуг" Nullable="true" Precision="19" />
+    <Property Type="Int32" Name="Скидка" Nullable="true" />
+    <Property Type="Decimal" Name="ОкончательнаяСтоимость" Nullable="true" Precision="19" />
+  </ComplexType>
+</Schema>

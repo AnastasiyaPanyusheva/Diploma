@@ -1,0 +1,758 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="Хранилище AnastasiaModelContainer" CdmEntityContainer="AnastasiaEntities1">
+    <EntitySetMapping Name="Calls">
+      <EntityTypeMapping TypeName="AnastasiaModel.Call">
+        <MappingFragment StoreEntitySet="Call">
+          <ScalarProperty Name="IdCall" ColumnName="IdCall" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Guestbooks">
+      <EntityTypeMapping TypeName="AnastasiaModel.Guestbook">
+        <MappingFragment StoreEntitySet="Guestbook">
+          <ScalarProperty Name="IdGuest" ColumnName="IdGuest" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Сообщение" ColumnName="Сообщение" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="sysdiagrams">
+      <EntityTypeMapping TypeName="AnastasiaModel.sysdiagram">
+        <MappingFragment StoreEntitySet="sysdiagrams">
+          <ScalarProperty Name="name" ColumnName="name" />
+          <ScalarProperty Name="principal_id" ColumnName="principal_id" />
+          <ScalarProperty Name="diagram_id" ColumnName="diagram_id" />
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Акция">
+      <EntityTypeMapping TypeName="AnastasiaModel.Акция">
+        <MappingFragment StoreEntitySet="Акция">
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+          <ScalarProperty Name="НазваниеАкция" ColumnName="НазваниеАкция" />
+          <ScalarProperty Name="ДатаНачала" ColumnName="ДатаНачала" />
+          <ScalarProperty Name="ДатаОкончания" ColumnName="ДатаОкончания" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ГруппаМатериалов">
+      <EntityTypeMapping TypeName="AnastasiaModel.ГруппаМатериалов">
+        <MappingFragment StoreEntitySet="ГруппаМатериалов">
+          <ScalarProperty Name="КодГруппа" ColumnName="КодГруппа" />
+          <ScalarProperty Name="НаименованиеГруппа" ColumnName="НаименованиеГруппа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Должность">
+      <EntityTypeMapping TypeName="AnastasiaModel.Должность">
+        <MappingFragment StoreEntitySet="Должность">
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="Должность1" ColumnName="Должность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Запись">
+      <EntityTypeMapping TypeName="AnastasiaModel.Запись">
+        <MappingFragment StoreEntitySet="Запись">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="КодКлиент" ColumnName="КодКлиент" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+          <ScalarProperty Name="КодУслуга" ColumnName="КодУслуга" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Заявка">
+      <EntityTypeMapping TypeName="AnastasiaModel.Заявка">
+        <MappingFragment StoreEntitySet="Заявка">
+          <ScalarProperty Name="КодЗаявки" ColumnName="КодЗаявки" />
+          <ScalarProperty Name="Имя" ColumnName="Имя" />
+          <ScalarProperty Name="Дата" ColumnName="Дата" />
+          <ScalarProperty Name="КодУслуга" ColumnName="КодУслуга" />
+          <ScalarProperty Name="Телефон" ColumnName="Телефон" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="Примечание" ColumnName="Примечание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КатегорияУслуги">
+      <EntityTypeMapping TypeName="AnastasiaModel.КатегорияУслуги">
+        <MappingFragment StoreEntitySet="КатегорияУслуги">
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+          <ScalarProperty Name="НаименованиеКатегория" ColumnName="НаименованиеКатегория" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Клиент">
+      <EntityTypeMapping TypeName="AnastasiaModel.Клиент">
+        <MappingFragment StoreEntitySet="Клиент">
+          <ScalarProperty Name="КодКлиент" ColumnName="КодКлиент" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="ДатаРожденияКлиент" ColumnName="ДатаРожденияКлиент" />
+          <ScalarProperty Name="ТелефонКлиент" ColumnName="ТелефонКлиент" />
+          <ScalarProperty Name="АдресКлиент" ColumnName="АдресКлиент" />
+          <ScalarProperty Name="EmailКлиент" ColumnName="EmailКлиент" />
+          <ScalarProperty Name="ДатаЗаполнения" ColumnName="ДатаЗаполнения" />
+          <ScalarProperty Name="ПримечаниеКлиент" ColumnName="ПримечаниеКлиент" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КтоЧемЗанимается">
+      <EntityTypeMapping TypeName="AnastasiaModel.КтоЧемЗанимается">
+        <MappingFragment StoreEntitySet="КтоЧемЗанимается">
+          <ScalarProperty Name="КодЧе" ColumnName="КодЧе" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Материал">
+      <EntityTypeMapping TypeName="AnastasiaModel.Материал">
+        <MappingFragment StoreEntitySet="Материал">
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="НаименованиеМатериал" ColumnName="НаименованиеМатериал" />
+          <ScalarProperty Name="КодГруппа" ColumnName="КодГруппа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОплатаУслуг">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОплатаУслуг">
+        <MappingFragment StoreEntitySet="ОплатаУслуг">
+          <ScalarProperty Name="КодОплата" ColumnName="КодОплата" />
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ОплатаКлиента" ColumnName="ОплатаКлиента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Пользователь">
+      <EntityTypeMapping TypeName="AnastasiaModel.Пользователь">
+        <MappingFragment StoreEntitySet="Пользователь">
+          <ScalarProperty Name="КодПользователя" ColumnName="КодПользователя" />
+          <ScalarProperty Name="Пользователь1" ColumnName="Пользователь" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Поставщик">
+      <EntityTypeMapping TypeName="AnastasiaModel.Поставщик">
+        <MappingFragment StoreEntitySet="Поставщик">
+          <ScalarProperty Name="КодПоставщик" ColumnName="КодПоставщик" />
+          <ScalarProperty Name="НаименованиеПоставщик" ColumnName="НаименованиеПоставщик" />
+          <ScalarProperty Name="ТелефонПоставщик" ColumnName="ТелефонПоставщик" />
+          <ScalarProperty Name="АдресПоставщик" ColumnName="АдресПоставщик" />
+          <ScalarProperty Name="EmailПоставщик" ColumnName="EmailПоставщик" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Приход">
+      <EntityTypeMapping TypeName="AnastasiaModel.Приход">
+        <MappingFragment StoreEntitySet="Приход">
+          <ScalarProperty Name="КодПриход" ColumnName="КодПриход" />
+          <ScalarProperty Name="КодПоставщик" ColumnName="КодПоставщик" />
+          <ScalarProperty Name="ДатаПриход" ColumnName="ДатаПриход" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Разряды">
+      <EntityTypeMapping TypeName="AnastasiaModel.Разряды">
+        <MappingFragment StoreEntitySet="Разряды">
+          <ScalarProperty Name="КодРазряд" ColumnName="КодРазряд" />
+          <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Расход">
+      <EntityTypeMapping TypeName="AnastasiaModel.Расход">
+        <MappingFragment StoreEntitySet="Расход">
+          <ScalarProperty Name="КодРасход" ColumnName="КодРасход" />
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КоличествоРасход" ColumnName="КоличествоРасход" />
+          <ScalarProperty Name="ДатаРасход" ColumnName="ДатаРасход" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СоставПрихода">
+      <EntityTypeMapping TypeName="AnastasiaModel.СоставПрихода">
+        <MappingFragment StoreEntitySet="СоставПрихода">
+          <ScalarProperty Name="КодЕдиницы" ColumnName="КодЕдиницы" />
+          <ScalarProperty Name="КодПриход" ColumnName="КодПриход" />
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="КоличествоПриход" ColumnName="КоличествоПриход" />
+          <ScalarProperty Name="ЦенаМатериал" ColumnName="ЦенаМатериал" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Сотрудник">
+      <EntityTypeMapping TypeName="AnastasiaModel.Сотрудник">
+        <MappingFragment StoreEntitySet="Сотрудник">
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="КодТариф" ColumnName="КодТариф" />
+          <ScalarProperty Name="ТелефонСотрудник" ColumnName="ТелефонСотрудник" />
+          <ScalarProperty Name="АдресСотрудник" ColumnName="АдресСотрудник" />
+          <ScalarProperty Name="ДатаРожденияСотрудник" ColumnName="ДатаРожденияСотрудник" />
+          <ScalarProperty Name="ПримечаниеСотрудник" ColumnName="ПримечаниеСотрудник" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Табель">
+      <EntityTypeMapping TypeName="AnastasiaModel.Табель">
+        <MappingFragment StoreEntitySet="Табель">
+          <ScalarProperty Name="КодТабель" ColumnName="КодТабель" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ДатаВыхода" ColumnName="ДатаВыхода" />
+          <ScalarProperty Name="КоличествоОтработанныхЧасов" ColumnName="КоличествоОтработанныхЧасов" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ТаблицаВремени">
+      <EntityTypeMapping TypeName="AnastasiaModel.ТаблицаВремени">
+        <MappingFragment StoreEntitySet="ТаблицаВремени">
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Тариф">
+      <EntityTypeMapping TypeName="AnastasiaModel.Тариф">
+        <MappingFragment StoreEntitySet="Тариф">
+          <ScalarProperty Name="КодТариф" ColumnName="КодТариф" />
+          <ScalarProperty Name="КодРазряд" ColumnName="КодРазряд" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="Ставка" ColumnName="Ставка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Услуга">
+      <EntityTypeMapping TypeName="AnastasiaModel.Услуга">
+        <MappingFragment StoreEntitySet="Услуга">
+          <ScalarProperty Name="КодУслуга" ColumnName="КодУслуга" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+          <ScalarProperty Name="ЦенаУслуги" ColumnName="ЦенаУслуги" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="АкцияЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.АкцияЗапрос">
+        <MappingFragment StoreEntitySet="АкцияЗапрос">
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+          <ScalarProperty Name="НазваниеАкция" ColumnName="НазваниеАкция" />
+          <ScalarProperty Name="ДатаНачала" ColumnName="ДатаНачала" />
+          <ScalarProperty Name="ДатаОкончания" ColumnName="ДатаОкончания" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ГруппаМатериаловЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ГруппаМатериаловЗапрос">
+        <MappingFragment StoreEntitySet="ГруппаМатериаловЗапрос">
+          <ScalarProperty Name="КодГруппа" ColumnName="КодГруппа" />
+          <ScalarProperty Name="НаименованиеГруппа" ColumnName="НаименованиеГруппа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ДОЛГклиента">
+      <EntityTypeMapping TypeName="AnastasiaModel.ДОЛГклиента">
+        <MappingFragment StoreEntitySet="ДОЛГклиента">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="Счет" ColumnName="Счет" />
+          <ScalarProperty Name="Оплачено" ColumnName="Оплачено" />
+          <ScalarProperty Name="Долг" ColumnName="Долг" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ДолжностьЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ДолжностьЗапрос">
+        <MappingFragment StoreEntitySet="ДолжностьЗапрос">
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ЗаписьЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ЗаписьЗапрос">
+        <MappingFragment StoreEntitySet="ЗаписьЗапрос">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="КодКлиент" ColumnName="КодКлиент" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ЗаписьЗапрос1">
+      <EntityTypeMapping TypeName="AnastasiaModel.ЗаписьЗапрос1">
+        <MappingFragment StoreEntitySet="ЗаписьЗапрос1">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="КодКлиент" ColumnName="КодКлиент" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КатегорияУслугиЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.КатегорияУслугиЗапрос">
+        <MappingFragment StoreEntitySet="КатегорияУслугиЗапрос">
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+          <ScalarProperty Name="НаименованиеКатегория" ColumnName="НаименованиеКатегория" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КлиентЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.КлиентЗапрос">
+        <MappingFragment StoreEntitySet="КлиентЗапрос">
+          <ScalarProperty Name="КодКлиент" ColumnName="КодКлиент" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="Пол" ColumnName="Пол" />
+          <ScalarProperty Name="ДатаРожденияКлиент" ColumnName="ДатаРожденияКлиент" />
+          <ScalarProperty Name="ТелефонКлиент" ColumnName="ТелефонКлиент" />
+          <ScalarProperty Name="АдресКлиент" ColumnName="АдресКлиент" />
+          <ScalarProperty Name="EmailКлиент" ColumnName="EmailКлиент" />
+          <ScalarProperty Name="ДатаЗаполнения" ColumnName="ДатаЗаполнения" />
+          <ScalarProperty Name="ПримечаниеКлиент" ColumnName="ПримечаниеКлиент" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="КтоЧемЗанимаетсяЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.КтоЧемЗанимаетсяЗапрос">
+        <MappingFragment StoreEntitySet="КтоЧемЗанимаетсяЗапрос">
+          <ScalarProperty Name="КодЧе" ColumnName="КодЧе" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="МастерЗаписи">
+      <EntityTypeMapping TypeName="AnastasiaModel.МастерЗаписи">
+        <MappingFragment StoreEntitySet="МастерЗаписи">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="МастерОказатьУслуги">
+      <EntityTypeMapping TypeName="AnastasiaModel.МастерОказатьУслуги">
+        <MappingFragment StoreEntitySet="МастерОказатьУслуги">
+          <ScalarProperty Name="КодОказаннаяУслуга" ColumnName="КодОказаннаяУслуга" />
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="МатериалЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.МатериалЗапрос">
+        <MappingFragment StoreEntitySet="МатериалЗапрос">
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="НаименованиеМатериал" ColumnName="НаименованиеМатериал" />
+          <ScalarProperty Name="КодГруппа" ColumnName="КодГруппа" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОказУслугиЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОказУслугиЗапрос">
+        <MappingFragment StoreEntitySet="ОказУслугиЗапрос">
+          <ScalarProperty Name="КодОказаннаяУслуга" ColumnName="КодОказаннаяУслуга" />
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="КодУслуга" ColumnName="КодУслуга" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ">
+        <MappingFragment StoreEntitySet="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="СтоимостьУслуг" ColumnName="СтоимостьУслуг" />
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="ОкончательнаяСтоимость1" ColumnName="ОкончательнаяСтоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОплатаУслугЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОплатаУслугЗапрос">
+        <MappingFragment StoreEntitySet="ОплатаУслугЗапрос">
+          <ScalarProperty Name="КодОплата" ColumnName="КодОплата" />
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="ОплатаКлиента" ColumnName="ОплатаКлиента" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОПЛАЧЕНОклиентом">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОПЛАЧЕНОклиентом">
+        <MappingFragment StoreEntitySet="ОПЛАЧЕНОклиентом">
+          <ScalarProperty Name="КодЗапись" ColumnName="КодЗапись" />
+          <ScalarProperty Name="Счет" ColumnName="Счет" />
+          <ScalarProperty Name="Оплачено" ColumnName="Оплачено" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Остаток">
+      <EntityTypeMapping TypeName="AnastasiaModel.Остаток">
+        <MappingFragment StoreEntitySet="Остаток">
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="НаименованиеМатериал" ColumnName="НаименованиеМатериал" />
+          <ScalarProperty Name="СуммаПрихода" ColumnName="СуммаПрихода" />
+          <ScalarProperty Name="СуммаРасхода" ColumnName="СуммаРасхода" />
+          <ScalarProperty Name="Остаток1" ColumnName="Остаток" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОТЧЕТпоАкции">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОТЧЕТпоАкции">
+        <MappingFragment StoreEntitySet="ОТЧЕТпоАкции">
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+          <ScalarProperty Name="СтоимостьУслуг" ColumnName="СтоимостьУслуг" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="ОкончательнаяСтоимость" ColumnName="ОкончательнаяСтоимость" />
+          <ScalarProperty Name="КодАкция" ColumnName="КодАкция" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ОТЧЕТпоСотруднику">
+      <EntityTypeMapping TypeName="AnastasiaModel.ОТЧЕТпоСотруднику">
+        <MappingFragment StoreEntitySet="ОТЧЕТпоСотруднику">
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+          <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+          <ScalarProperty Name="Ставка" ColumnName="Ставка" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="СтоимостьУслуг" ColumnName="СтоимостьУслуг" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="ОкончательнаяСтоимость" ColumnName="ОкончательнаяСтоимость" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ПолучитьДолжностьСотрудника">
+      <EntityTypeMapping TypeName="AnastasiaModel.ПолучитьДолжностьСотрудника">
+        <MappingFragment StoreEntitySet="ПолучитьДолжностьСотрудника">
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ПользовательЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ПользовательЗапрос">
+        <MappingFragment StoreEntitySet="ПользовательЗапрос">
+          <ScalarProperty Name="КодПользователя" ColumnName="КодПользователя" />
+          <ScalarProperty Name="Пользователь" ColumnName="Пользователь" />
+          <ScalarProperty Name="Пароль" ColumnName="Пароль" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ПоставщикЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ПоставщикЗапрос">
+        <MappingFragment StoreEntitySet="ПоставщикЗапрос">
+          <ScalarProperty Name="КодПоставщик" ColumnName="КодПоставщик" />
+          <ScalarProperty Name="НаименованиеПоставщик" ColumnName="НаименованиеПоставщик" />
+          <ScalarProperty Name="ТелефонПоставщик" ColumnName="ТелефонПоставщик" />
+          <ScalarProperty Name="АдресПоставщик" ColumnName="АдресПоставщик" />
+          <ScalarProperty Name="EmailПоставщик" ColumnName="EmailПоставщик" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ПриходЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ПриходЗапрос">
+        <MappingFragment StoreEntitySet="ПриходЗапрос">
+          <ScalarProperty Name="КодПриход" ColumnName="КодПриход" />
+          <ScalarProperty Name="КодПоставщик" ColumnName="КодПоставщик" />
+          <ScalarProperty Name="ДатаПриход" ColumnName="ДатаПриход" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="РазрядЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.РазрядЗапрос">
+        <MappingFragment StoreEntitySet="РазрядЗапрос">
+          <ScalarProperty Name="КодРазряд" ColumnName="КодРазряд" />
+          <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="РасходЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.РасходЗапрос">
+        <MappingFragment StoreEntitySet="РасходЗапрос">
+          <ScalarProperty Name="КодРасход" ColumnName="КодРасход" />
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КоличествоРасход" ColumnName="КоличествоРасход" />
+          <ScalarProperty Name="ДатаРасход" ColumnName="ДатаРасход" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СоставПриходаЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.СоставПриходаЗапрос">
+        <MappingFragment StoreEntitySet="СоставПриходаЗапрос">
+          <ScalarProperty Name="КодЕдиницы" ColumnName="КодЕдиницы" />
+          <ScalarProperty Name="КодПриход" ColumnName="КодПриход" />
+          <ScalarProperty Name="КодМатериал" ColumnName="КодМатериал" />
+          <ScalarProperty Name="КоличествоПриход" ColumnName="КоличествоПриход" />
+          <ScalarProperty Name="ЦенаМатериал" ColumnName="ЦенаМатериал" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СотрЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.СотрЗапрос">
+        <MappingFragment StoreEntitySet="СотрЗапрос">
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="СотрудникЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.СотрудникЗапрос">
+        <MappingFragment StoreEntitySet="СотрудникЗапрос">
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="КодТариф" ColumnName="КодТариф" />
+          <ScalarProperty Name="ТелефонСотрудник" ColumnName="ТелефонСотрудник" />
+          <ScalarProperty Name="АдресСотрудник" ColumnName="АдресСотрудник" />
+          <ScalarProperty Name="ДатаРожденияСотрудник" ColumnName="ДатаРожденияСотрудник" />
+          <ScalarProperty Name="ПримечаниеСотрудник" ColumnName="ПримечаниеСотрудник" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+          <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="КодРазряд" ColumnName="КодРазряд" />
+          <ScalarProperty Name="Ставка" ColumnName="Ставка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ТабельЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ТабельЗапрос">
+        <MappingFragment StoreEntitySet="ТабельЗапрос">
+          <ScalarProperty Name="КодТабель" ColumnName="КодТабель" />
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ДатаВыхода" ColumnName="ДатаВыхода" />
+          <ScalarProperty Name="КоличествоОтработанныхЧасов" ColumnName="КоличествоОтработанныхЧасов" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ТаблицаВремениЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ТаблицаВремениЗапрос">
+        <MappingFragment StoreEntitySet="ТаблицаВремениЗапрос">
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ТарифЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.ТарифЗапрос">
+        <MappingFragment StoreEntitySet="ТарифЗапрос">
+          <ScalarProperty Name="КодТариф" ColumnName="КодТариф" />
+          <ScalarProperty Name="КодРазряд" ColumnName="КодРазряд" />
+          <ScalarProperty Name="КодДолжность" ColumnName="КодДолжность" />
+          <ScalarProperty Name="Ставка" ColumnName="Ставка" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="УслугаЗапрос">
+      <EntityTypeMapping TypeName="AnastasiaModel.УслугаЗапрос">
+        <MappingFragment StoreEntitySet="УслугаЗапрос">
+          <ScalarProperty Name="КодУслуга" ColumnName="КодУслуга" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+          <ScalarProperty Name="КодКатегория" ColumnName="КодКатегория" />
+          <ScalarProperty Name="ЦенаУслуги" ColumnName="ЦенаУслуги" />
+          <ScalarProperty Name="Описание" ColumnName="Описание" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="SelectWithParam" FunctionName="Хранилище AnastasiaModel.SelectWithParam">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.SelectWithParam_Result">
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="SelectWithParams" FunctionName="Хранилище AnastasiaModel.SelectWithParams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.SelectWithParams_Result">
+          <ScalarProperty Name="КодВремя" ColumnName="КодВремя" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_alterdiagram" FunctionName="Хранилище AnastasiaModel.sp_alterdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_creatediagram" FunctionName="Хранилище AnastasiaModel.sp_creatediagram" />
+    <FunctionImportMapping FunctionImportName="sp_dropdiagram" FunctionName="Хранилище AnastasiaModel.sp_dropdiagram" />
+    <FunctionImportMapping FunctionImportName="sp_helpdiagramdefinition" FunctionName="Хранилище AnastasiaModel.sp_helpdiagramdefinition">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.sp_helpdiagramdefinition_Result">
+          <ScalarProperty Name="version" ColumnName="version" />
+          <ScalarProperty Name="definition" ColumnName="definition" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_helpdiagrams" FunctionName="Хранилище AnastasiaModel.sp_helpdiagrams">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.sp_helpdiagrams_Result">
+          <ScalarProperty Name="Database" ColumnName="Database" />
+          <ScalarProperty Name="Name" ColumnName="Name" />
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Owner" ColumnName="Owner" />
+          <ScalarProperty Name="OwnerID" ColumnName="OwnerID" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="sp_renamediagram" FunctionName="Хранилище AnastasiaModel.sp_renamediagram" />
+    <FunctionImportMapping FunctionImportName="sp_upgraddiagrams" FunctionName="Хранилище AnastasiaModel.sp_upgraddiagrams" />
+    <FunctionImportMapping FunctionImportName="ВыручкаПоСотруднику" FunctionName="Хранилище AnastasiaModel.ВыручкаПоСотруднику">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.ВыручкаПоСотруднику_Result">
+          <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+          <ScalarProperty Name="Общая_выручка" ColumnName="Общая выручка" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ДобавитьАкция" FunctionName="Хранилище AnastasiaModel.ДобавитьАкция" />
+    <FunctionImportMapping FunctionImportName="ДобавитьГруппаМатериалов" FunctionName="Хранилище AnastasiaModel.ДобавитьГруппаМатериалов" />
+    <FunctionImportMapping FunctionImportName="ДобавитьДолжность" FunctionName="Хранилище AnastasiaModel.ДобавитьДолжность" />
+    <FunctionImportMapping FunctionImportName="ДобавитьЗапись" FunctionName="Хранилище AnastasiaModel.ДобавитьЗапись" />
+    <FunctionImportMapping FunctionImportName="ДобавитьКатегорияУслуги" FunctionName="Хранилище AnastasiaModel.ДобавитьКатегорияУслуги" />
+    <FunctionImportMapping FunctionImportName="ДобавитьКлиент" FunctionName="Хранилище AnastasiaModel.ДобавитьКлиент" />
+    <FunctionImportMapping FunctionImportName="ДобавитьКтоЧемЗанимается" FunctionName="Хранилище AnastasiaModel.ДобавитьКтоЧемЗанимается" />
+    <FunctionImportMapping FunctionImportName="ДобавитьМатериал" FunctionName="Хранилище AnastasiaModel.ДобавитьМатериал" />
+    <FunctionImportMapping FunctionImportName="ДобавитьОказанныеУслуги" FunctionName="Хранилище AnastasiaModel.ДобавитьОказанныеУслуги" />
+    <FunctionImportMapping FunctionImportName="ДобавитьОплата" FunctionName="Хранилище AnastasiaModel.ДобавитьОплата" />
+    <FunctionImportMapping FunctionImportName="ДобавитьПользователь" FunctionName="Хранилище AnastasiaModel.ДобавитьПользователь" />
+    <FunctionImportMapping FunctionImportName="ДобавитьПоставщик" FunctionName="Хранилище AnastasiaModel.ДобавитьПоставщик" />
+    <FunctionImportMapping FunctionImportName="ДобавитьПриход" FunctionName="Хранилище AnastasiaModel.ДобавитьПриход" />
+    <FunctionImportMapping FunctionImportName="ДобавитьРазряды" FunctionName="Хранилище AnastasiaModel.ДобавитьРазряды" />
+    <FunctionImportMapping FunctionImportName="ДобавитьРасход" FunctionName="Хранилище AnastasiaModel.ДобавитьРасход" />
+    <FunctionImportMapping FunctionImportName="ДобавитьСоставПрихода" FunctionName="Хранилище AnastasiaModel.ДобавитьСоставПрихода" />
+    <FunctionImportMapping FunctionImportName="ДобавитьСотрудник" FunctionName="Хранилище AnastasiaModel.ДобавитьСотрудник" />
+    <FunctionImportMapping FunctionImportName="ДобавитьТабель" FunctionName="Хранилище AnastasiaModel.ДобавитьТабель" />
+    <FunctionImportMapping FunctionImportName="ДобавитьТаблицаВремени" FunctionName="Хранилище AnastasiaModel.ДобавитьТаблицаВремени" />
+    <FunctionImportMapping FunctionImportName="ДобавитьТариф" FunctionName="Хранилище AnastasiaModel.ДобавитьТариф" />
+    <FunctionImportMapping FunctionImportName="ДобавитьУслуга" FunctionName="Хранилище AnastasiaModel.ДобавитьУслуга" />
+    <FunctionImportMapping FunctionImportName="ЗАРПЛАТАзаМесяц" FunctionName="Хранилище AnastasiaModel.ЗАРПЛАТАзаМесяц">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.ЗАРПЛАТАзаМесяц_Result">
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="Zp" ColumnName="Zp" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ИзменитьАкция" FunctionName="Хранилище AnastasiaModel.ИзменитьАкция" />
+    <FunctionImportMapping FunctionImportName="ИзменитьГруппаМатериалов" FunctionName="Хранилище AnastasiaModel.ИзменитьГруппаМатериалов" />
+    <FunctionImportMapping FunctionImportName="ИзменитьДолжность" FunctionName="Хранилище AnastasiaModel.ИзменитьДолжность" />
+    <FunctionImportMapping FunctionImportName="ИзменитьЗапись" FunctionName="Хранилище AnastasiaModel.ИзменитьЗапись" />
+    <FunctionImportMapping FunctionImportName="ИзменитьКатегорияУслуги" FunctionName="Хранилище AnastasiaModel.ИзменитьКатегорияУслуги" />
+    <FunctionImportMapping FunctionImportName="ИзменитьКлиент" FunctionName="Хранилище AnastasiaModel.ИзменитьКлиент" />
+    <FunctionImportMapping FunctionImportName="ИзменитьМатериал" FunctionName="Хранилище AnastasiaModel.ИзменитьМатериал" />
+    <FunctionImportMapping FunctionImportName="ИзменитьОказанныеУслуги" FunctionName="Хранилище AnastasiaModel.ИзменитьОказанныеУслуги" />
+    <FunctionImportMapping FunctionImportName="ИзменитьОплата" FunctionName="Хранилище AnastasiaModel.ИзменитьОплата" />
+    <FunctionImportMapping FunctionImportName="ИзменитьПользователь" FunctionName="Хранилище AnastasiaModel.ИзменитьПользователь" />
+    <FunctionImportMapping FunctionImportName="ИзменитьПоставщик" FunctionName="Хранилище AnastasiaModel.ИзменитьПоставщик" />
+    <FunctionImportMapping FunctionImportName="ИзменитьПриход" FunctionName="Хранилище AnastasiaModel.ИзменитьПриход" />
+    <FunctionImportMapping FunctionImportName="ИзменитьРазряды" FunctionName="Хранилище AnastasiaModel.ИзменитьРазряды" />
+    <FunctionImportMapping FunctionImportName="ИзменитьРасход" FunctionName="Хранилище AnastasiaModel.ИзменитьРасход" />
+    <FunctionImportMapping FunctionImportName="ИзменитьСоставПрихода" FunctionName="Хранилище AnastasiaModel.ИзменитьСоставПрихода" />
+    <FunctionImportMapping FunctionImportName="ИзменитьСотрудник" FunctionName="Хранилище AnastasiaModel.ИзменитьСотрудник" />
+    <FunctionImportMapping FunctionImportName="ИзменитьТабель" FunctionName="Хранилище AnastasiaModel.ИзменитьТабель" />
+    <FunctionImportMapping FunctionImportName="ИзменитьТаблицаВремени" FunctionName="Хранилище AnastasiaModel.ИзменитьТаблицаВремени" />
+    <FunctionImportMapping FunctionImportName="ИзменитьТариф" FunctionName="Хранилище AnastasiaModel.ИзменитьТариф" />
+    <FunctionImportMapping FunctionImportName="ИзменитьУслуга" FunctionName="Хранилище AnastasiaModel.ИзменитьУслуга" />
+    <FunctionImportMapping FunctionImportName="КарточкаКлиента" FunctionName="Хранилище AnastasiaModel.КарточкаКлиента">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.КарточкаКлиента_Result">
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="НаименованиеУслуга" ColumnName="НаименованиеУслуга" />
+          <ScalarProperty Name="ЦенаУслуги" ColumnName="ЦенаУслуги" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="КоличествоКлиентов" FunctionName="Хранилище AnastasiaModel.КоличествоКлиентов">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.КоличествоКлиентов_Result">
+          <ScalarProperty Name="Сотрудник" ColumnName="Сотрудник" />
+          <ScalarProperty Name="Клиентов" ColumnName="Клиентов" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ПолныйОтчетСотрудник" FunctionName="Хранилище AnastasiaModel.ПолныйОтчетСотрудник">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.ПолныйОтчетСотрудник_Result">
+          <ScalarProperty Name="КодСотрудник" ColumnName="КодСотрудник" />
+          <ScalarProperty Name="ФИОсотрудник" ColumnName="ФИОсотрудник" />
+          <ScalarProperty Name="Должность" ColumnName="Должность" />
+          <ScalarProperty Name="Разряд" ColumnName="Разряд" />
+          <ScalarProperty Name="Ставка" ColumnName="Ставка" />
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ЗначениеВремя" ColumnName="ЗначениеВремя" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="СтоимостьУслуг" ColumnName="СтоимостьУслуг" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="ОкончательнаяСтоимость" ColumnName="ОкончательнаяСтоимость" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="ПолныйОтчетСотрудник2" FunctionName="Хранилище AnastasiaModel.ПолныйОтчетСотрудник2">
+      <ResultMapping>
+        <ComplexTypeMapping TypeName="AnastasiaModel.ПолныйОтчетСотрудник2_Result">
+          <ScalarProperty Name="ДатаЗапись" ColumnName="ДатаЗапись" />
+          <ScalarProperty Name="ФИОклиент" ColumnName="ФИОклиент" />
+          <ScalarProperty Name="СтоимостьУслуг" ColumnName="СтоимостьУслуг" />
+          <ScalarProperty Name="Скидка" ColumnName="Скидка" />
+          <ScalarProperty Name="ОкончательнаяСтоимость" ColumnName="ОкончательнаяСтоимость" />
+        </ComplexTypeMapping>
+      </ResultMapping>
+    </FunctionImportMapping>
+    <FunctionImportMapping FunctionImportName="УдалитьАкция" FunctionName="Хранилище AnastasiaModel.УдалитьАкция" />
+    <FunctionImportMapping FunctionImportName="УдалитьГруппаМатериалов" FunctionName="Хранилище AnastasiaModel.УдалитьГруппаМатериалов" />
+    <FunctionImportMapping FunctionImportName="УдалитьДолжность" FunctionName="Хранилище AnastasiaModel.УдалитьДолжность" />
+    <FunctionImportMapping FunctionImportName="УдалитьЗапись" FunctionName="Хранилище AnastasiaModel.УдалитьЗапись" />
+    <FunctionImportMapping FunctionImportName="УдалитьКатегорияУслуги" FunctionName="Хранилище AnastasiaModel.УдалитьКатегорияУслуги" />
+    <FunctionImportMapping FunctionImportName="УдалитьКлиент" FunctionName="Хранилище AnastasiaModel.УдалитьКлиент" />
+    <FunctionImportMapping FunctionImportName="УдалитьМатериал" FunctionName="Хранилище AnastasiaModel.УдалитьМатериал" />
+    <FunctionImportMapping FunctionImportName="УдалитьОказанныеУслуги" FunctionName="Хранилище AnastasiaModel.УдалитьОказанныеУслуги" />
+    <FunctionImportMapping FunctionImportName="УдалитьОплата" FunctionName="Хранилище AnastasiaModel.УдалитьОплата" />
+    <FunctionImportMapping FunctionImportName="УдалитьПользователь" FunctionName="Хранилище AnastasiaModel.УдалитьПользователь" />
+    <FunctionImportMapping FunctionImportName="УдалитьПоставщик" FunctionName="Хранилище AnastasiaModel.УдалитьПоставщик" />
+    <FunctionImportMapping FunctionImportName="УдалитьПриход" FunctionName="Хранилище AnastasiaModel.УдалитьПриход" />
+    <FunctionImportMapping FunctionImportName="УдалитьРазряды" FunctionName="Хранилище AnastasiaModel.УдалитьРазряды" />
+    <FunctionImportMapping FunctionImportName="УдалитьРасход" FunctionName="Хранилище AnastasiaModel.УдалитьРасход" />
+    <FunctionImportMapping FunctionImportName="УдалитьСоставПрихода" FunctionName="Хранилище AnastasiaModel.УдалитьСоставПрихода" />
+    <FunctionImportMapping FunctionImportName="УдалитьСотрудник" FunctionName="Хранилище AnastasiaModel.УдалитьСотрудник" />
+    <FunctionImportMapping FunctionImportName="УдалитьТабель" FunctionName="Хранилище AnastasiaModel.УдалитьТабель" />
+    <FunctionImportMapping FunctionImportName="УдалитьТаблицаВремени" FunctionName="Хранилище AnastasiaModel.УдалитьТаблицаВремени" />
+    <FunctionImportMapping FunctionImportName="УдалитьТариф" FunctionName="Хранилище AnastasiaModel.УдалитьТариф" />
+    <FunctionImportMapping FunctionImportName="УдалитьУслуга" FunctionName="Хранилище AnastasiaModel.УдалитьУслуга" />
+  </EntityContainerMapping>
+</Mapping>

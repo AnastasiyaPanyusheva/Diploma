@@ -1,0 +1,56 @@
+﻿@model BeautySalon.Models.Акция
+
+@{
+    ViewBag.Title = "Удаление акции";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление акции</h2>
+
+<h3>Вы действительно хотите удалить эту акцию?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Название
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.НазваниеАкция)
+        </dd>
+
+        <dt>
+            Дата начала
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаНачала)
+        </dd>
+
+        <dt>
+            Дата окончания
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаОкончания)
+        </dd>
+
+        <dt>
+            Скидка %
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Скидка)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Discount")
+        </div>
+    }
+</div>

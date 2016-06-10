@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BeautySalon.Models.Расход>
+
+@{
+    ViewBag.Title = "Расход материала";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Расход материала</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.КоличествоРасход)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ДатаРасход)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Материал.НаименованиеМатериал)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Сотрудник.ФИОсотрудник)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.КоличествоРасход)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаРасход)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Материал.НаименованиеМатериал)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Сотрудник.ФИОсотрудник)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditRashod", new { id=item.КодРасход }) |
+            @Html.ActionLink("Удалить", "DeleteRashod", new { id = item.КодРасход })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model BeautySalon.Models.Поставщик
+
+@{
+    ViewBag.Title = "Удаление поставщика";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление поставщика</h2>
+
+<h3>Вы действительно хотите удалить поставщика?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.НаименованиеПоставщик)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.НаименованиеПоставщик)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ТелефонПоставщик)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ТелефонПоставщик)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.АдресПоставщик)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.АдресПоставщик)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailПоставщик)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailПоставщик)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Provider")
+        </div>
+    }
+</div>

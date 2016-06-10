@@ -1,0 +1,49 @@
+﻿@model BeautySalon.Models.Табель
+
+@{
+    ViewBag.Title = "Удаление";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление</h2>
+
+<h3>Вы действительно хотите удалить запись?</h3>
+<div>
+    <h4>Табель</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ДатаВыхода)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаВыхода)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.КоличествоОтработанныхЧасов)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.КоличествоОтработанныхЧасов)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Сотрудник.ФИОсотрудник)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Сотрудник.ФИОсотрудник)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Tabel")
+        </div>
+    }
+</div>

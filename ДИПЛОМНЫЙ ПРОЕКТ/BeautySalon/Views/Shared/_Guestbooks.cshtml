@@ -1,0 +1,59 @@
+﻿
+
+@model IEnumerable<BeautySalon.Models.Guestbook>
+
+@{
+    //ViewBag.Title = "Гостевая книга";
+    //Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+@*<h2>Гостевая книга</h2>*@
+
+@using (Html.BeginForm("CreateGuest", "Home", FormMethod.Post))
+{
+    <fieldset>
+        <legend>Оставить отзыв</legend>
+        @*Введите имя: <br /> <input type="text" name="Имя" maxlength="50" class="form-control" />
+        <br />
+        Введите сообщение: <br />
+        <textarea name="Сообщение" rows="3" cols="60" class="form-control" ></textarea>
+        <br />
+        <input type="submit" value="Отправить" class="btn btn-default" />*@
+        <div class="form-horizontal">
+            <div class="form-group">
+                @*@Html.LabelFor(model => model.Имя, htmlAttributes: new { @class = "control-label col-md-2" })*@
+                <div class="control-label col-md-2">Введите имя</div>
+                <div class="col-md-10">
+                    <input type="text" name="Имя" maxlength="50" class="form-control" />
+                </div>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <div class="control-label col-md-2">Введите сообщение</div>
+                <div class="col-md-10">
+                    <textarea name="Сообщение" rows="3" cols="60" class="form-control"></textarea>
+                </div>
+                <br />
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Отправить" class="btn btn-default" />
+                </div>
+                <br />
+            </div>
+        </div>
+
+</fieldset>
+}
+<h4>Все отзывы</h4>
+@foreach (var item in Model)
+{
+    <div style="background-color:silver; padding:3px; margin:5px;">
+        <p>@item.Сообщение</p>
+        <p>Добавил(а) <b>@item.Имя</b>. Дата: @item.Дата</p>
+    </div>
+
+}

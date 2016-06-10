@@ -1,0 +1,123 @@
+﻿@*@model IEnumerable<BeautySalon.Models.ЗаписьЗапрос>*@
+@model BeautySalon.Models.ClassVisit
+@{
+    ViewBag.Title = "Записи";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<div class="MaybeVisit">
+    @Html.Partial("_MaybeVisit")
+</div>*@
+
+<h2>Заявки на запись</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            Имя
+        </th>
+        <th>
+            Дата
+        </th>
+        <th>
+            Услуга
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th>
+           Email
+        </th>
+        <th>
+            Примечание
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model.заявка)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Имя)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Дата)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Услуга.НаименованиеУслуга)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Телефон)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Email)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Примечание)
+            </td>
+
+            <td>
+                @Html.ActionLink("Изменить", "EditMaybeVisit", new { id = item.КодЗаявки }) |
+                @Html.ActionLink("Удалить", "DeleteMaybeVisit", new { id = item.КодЗаявки })
+            </td>
+        </tr>
+    }
+
+</table>
+
+<h2>Записи</h2>
+
+<p>
+    @Html.ActionLink("Создать запись", "CreateVisit")
+</p>
+<p>
+    @Html.ActionLink("Создать клиента", "CreateClient")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата записи
+        </th>
+        <th>
+            Время
+        </th>
+        <th>
+            ФИО клиента
+        </th>
+        <th>
+            ФИО сотрудника
+        </th>
+        <th>
+            Скидка
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.запись) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаЗапись)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ЗначениеВремя)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ФИОклиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ФИОсотрудник)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Скидка)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.НаименованиеУслуга)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditVisit", new {  id=item.КодЗапись  }) |
+            @Html.ActionLink("Удалить", "DeleteVisit", new { id = item.КодЗапись })
+        </td>
+    </tr>
+}
+
+</table>

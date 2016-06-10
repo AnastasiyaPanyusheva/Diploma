@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeautySalon.Models.Разряды>
+
+@{
+    ViewBag.Title = "Разряды";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Разряды</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateRazr")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Разряд)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Разряд)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditRazr", new { id=item.КодРазряд }) |
+            @Html.ActionLink("Удалить", "DeleteRazr", new { id = item.КодРазряд })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,51 @@
+﻿@model IEnumerable<BeautySalon.Models.СоставПрихода>
+
+@{
+    ViewBag.Title = "Состав прихода";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Состав прихода</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateInBox")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.КоличествоПриход)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.ЦенаМатериал)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Материал.НаименованиеМатериал)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Приход.КодПриход)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.КоличествоПриход)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ЦенаМатериал)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Материал.НаименованиеМатериал)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Приход.КодПриход)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditInBox", new { id = item.КодЕдиницы }) |
+            @Html.ActionLink("Удалить", "DeleteInBox", new { id = item.КодЕдиницы })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,56 @@
+﻿@model BeautySalon.Models.Услуга
+
+@{
+    ViewBag.Title = "Удаление услуги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление услуги</h2>
+
+<h3>Вы действительно хотите удалить эту услугу?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Наименование
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.НаименованиеУслуга)
+        </dd>
+
+        <dt>
+            Цена
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ЦенаУслуги)
+        </dd>
+
+        <dt>
+           Описание
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Описание)
+        </dd>
+
+        <dt>
+           Категория
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.КатегорияУслуги.НаименованиеКатегория)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Service")
+        </div>
+    }
+</div>

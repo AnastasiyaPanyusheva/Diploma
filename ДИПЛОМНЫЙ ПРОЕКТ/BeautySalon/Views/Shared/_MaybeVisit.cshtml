@@ -1,0 +1,55 @@
+﻿@model IEnumerable<BeautySalon.Models.Заявка>
+
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Имя)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Дата)
+        </th>
+        <th>
+            Услуга
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Телефон)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Email)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Примечание)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Имя)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Дата)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Услуга.НаименованиеУслуга)
+        </td>        
+        <td>
+            @Html.DisplayFor(modelItem => item.Телефон)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Email)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Примечание)
+        </td>
+        
+        <td>
+            @Html.ActionLink("Изменить", "EditMaybeVisit", new { id = item.КодЗаявки }) |
+            @Html.ActionLink("Удалить", "DeleteMaybeVisit", new { id = item.КодЗаявки })
+        </td>
+    </tr>
+}
+
+</table>

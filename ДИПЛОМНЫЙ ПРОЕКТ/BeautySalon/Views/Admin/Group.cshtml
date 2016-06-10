@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeautySalon.Models.ГруппаМатериалов>
+
+@{
+    ViewBag.Title = "Группы материалов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Группы материалов</h2>
+
+<p>
+    @Html.ActionLink("Create New", "CreateGroup")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.НаименованиеГруппа)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.НаименованиеГруппа)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "EditGroup", new { id = item.КодГруппа }) |
+            @Html.ActionLink("Delete", "DeleteGroup", new { id = item.КодГруппа })
+        </td>
+    </tr>
+}
+
+</table>

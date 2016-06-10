@@ -1,0 +1,59 @@
+﻿@model BeautySalon.Models.СоставПрихода
+
+@{
+    ViewBag.Title = "Создание состава прихода";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Создание состава прихода</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.КодПриход, "КодПриход", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("КодПриход", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.КодПриход, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.КодМатериал, "КодМатериал", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("КодМатериал", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.КодМатериал, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.КоличествоПриход, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.КоличествоПриход, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.КоличествоПриход, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ЦенаМатериал, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ЦенаМатериал, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ЦенаМатериал, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "InBox")
+</div>

@@ -1,0 +1,88 @@
+﻿@model BeautySalon.Models.Клиент
+
+@{
+    ViewBag.Title = "Удаление клиента";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление клиента</h2>
+
+<h3>Вы действительно хотите удалить клиента?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            ФИО
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ФИОклиент)
+        </dd>
+
+        <dt>
+            Пол
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Пол)
+        </dd>
+
+        <dt>
+            Дата рождения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаРожденияКлиент)
+        </dd>
+
+        <dt>
+            Телефон
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ТелефонКлиент)
+        </dd>
+
+        <dt>
+            Адрес
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.АдресКлиент)
+        </dd>
+
+        <dt>
+            Email
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailКлиент)
+        </dd>
+
+        <dt>
+            Дата заполнения
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаЗаполнения)
+        </dd>
+
+        <dt>
+            Примечание
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ПримечаниеКлиент)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Client")
+        </div>
+    }
+</div>

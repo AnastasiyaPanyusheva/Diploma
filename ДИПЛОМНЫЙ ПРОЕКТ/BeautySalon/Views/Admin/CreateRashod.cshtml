@@ -1,0 +1,59 @@
+﻿@model BeautySalon.Models.Расход
+
+@{
+    ViewBag.Title = "Создание расхода";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Создание расхода</h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.КодМатериал, "КодМатериал", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("КодМатериал", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.КодМатериал, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.КодСотрудник, "КодСотрудник", htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.DropDownList("КодСотрудник", null, htmlAttributes: new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.КодСотрудник, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.КоличествоРасход, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.КоличествоРасход, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.КоличествоРасход, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.ДатаРасход, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.ДатаРасход, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.ДатаРасход, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Создать" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Вернуться к списку", "Rashod")
+</div>

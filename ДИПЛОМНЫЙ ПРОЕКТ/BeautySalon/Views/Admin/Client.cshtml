@@ -1,0 +1,75 @@
+﻿@model IEnumerable<BeautySalon.Models.Клиент>
+
+@{
+    ViewBag.Title = "Клиенты";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Клиенты</h2>
+
+<p>
+    @Html.ActionLink("Создать клиента", "CreateClient")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            ФИО
+        </th>
+        <th>
+            Пол
+        </th>
+        <th>
+            Дата рождения
+        </th>
+        <th>
+            Телефон
+        </th>
+        <th>
+            Адрес
+        </th>
+        <th>
+            Email
+        </th>
+        <th>
+            Дата заполнения
+        </th>
+        <th>
+            Примечание
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ФИОклиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Пол)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаРожденияКлиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ТелефонКлиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.АдресКлиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmailКлиент)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаЗаполнения)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ПримечаниеКлиент)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditClient", new { id=item.КодКлиент }) |
+            @Html.ActionLink("Удалить", "DeleteClient", new { id = item.КодКлиент })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,52 @@
+﻿@model IEnumerable<BeautySalon.Models.Акция>
+
+@{
+    ViewBag.Title = "Акции";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Акции</h2>
+
+<p>
+    @Html.ActionLink("Создать акцию", "CreateDiscount")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Название
+        </th>
+        <th>
+            Дата начала
+        </th>
+        <th>
+            Дата окончания
+        </th>
+        <th>
+            Скидка %
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.НазваниеАкция)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаНачала)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаОкончания)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Скидка)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditDiscount", new { id=item.КодАкция }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.КодАкция }) |*@
+            @Html.ActionLink("Удалить", "DeleteDiscount", new { id = item.КодАкция })
+        </td>
+    </tr>
+}
+
+</table>

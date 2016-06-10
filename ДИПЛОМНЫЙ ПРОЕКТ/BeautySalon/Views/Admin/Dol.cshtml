@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeautySalon.Models.Должность>
+
+@{
+    ViewBag.Title = "Должности";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Должности</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateDol")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Должность1)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Должность1)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditDol", new { id=item.КодДолжность }) |
+            @Html.ActionLink("Удалить", "DeleteDol", new { id=item.КодДолжность })
+        </td>
+    </tr>
+}
+
+</table>

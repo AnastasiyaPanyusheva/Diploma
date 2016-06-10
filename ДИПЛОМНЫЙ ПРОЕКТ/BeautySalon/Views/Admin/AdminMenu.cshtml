@@ -1,0 +1,36 @@
+﻿@{
+    ViewBag.Title = "Меню";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@*<h2>@ViewBag.Title</h2>*@
+@*<h3>@ViewBag.Message</h3>
+
+<p>
+    @Html.ActionLink("Администратор", "Admin", "Admin")
+</p>
+
+<p>
+    @Html.ActionLink("Мастер", "Master", "Admin")
+</p>*@
+<br />
+<br />
+
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>АДМИНИСТРАТОР</h2>
+        <a href='@Url.Action("Admin", "Admin")'><img src='https://pp.vk.me/c630321/v630321035/34bc8/X1PX2AwnxB4.jpg' /></a>
+    </div>
+
+    <div class="col-md-4">
+       <p>  </p> 
+    </div>
+
+    <div class="col-md-4">
+        <h2>МАСТЕР</h2>
+        <a href='@Url.Action("Master", "Admin")'><img src='https://pp.vk.me/c630321/v630321035/34bcf/svyeRNMkqAM.jpg' /></a>
+    </div>
+ 
+
+</div>

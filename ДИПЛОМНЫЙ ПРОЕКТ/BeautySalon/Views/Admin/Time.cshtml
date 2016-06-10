@@ -1,0 +1,33 @@
+﻿@model IEnumerable<BeautySalon.Models.ТаблицаВремени>
+
+@{
+    ViewBag.Title = "Таблица времени";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Таблица времени</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateTime")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ЗначениеВремя)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ЗначениеВремя)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditTime", new { id=item.КодВремя }) |
+            @Html.ActionLink("Удалить", "DeleteTime", new { id=item.КодВремя })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,53 @@
+﻿@model IEnumerable<BeautySalon.Models.Услуга>
+
+@{
+    ViewBag.Title = "Услуги";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Услуги</h2>
+
+<p>
+    @Html.ActionLink("Создать услугу", "CreateService") |
+    @Html.ActionLink("Вернуться в меню", "AdminMenu", "Admin")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Наименование
+        </th>
+        <th>
+           Цена
+        </th>
+        <th>
+           Описание
+        </th>
+        <th>
+           Категория
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.НаименованиеУслуга)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ЦенаУслуги)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Описание)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.КатегорияУслуги.НаименованиеКатегория)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditService", new { id = item.КодУслуга }) |
+            @*@Html.ActionLink("Details", "Details", new { id=item.КодУслуга }) |*@
+            @Html.ActionLink("Удалить", "DeleteService", new { id = item.КодУслуга })
+        </td>
+    </tr>
+}
+
+</table>

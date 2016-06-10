@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BeautySalon.Models.Материал>
+
+@{
+    ViewBag.Title = "Материалы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Материалы</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateMaterial")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Наименование
+        </th>
+        <th>
+            Группа
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.НаименованиеМатериал)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.ГруппаМатериалов.НаименованиеГруппа)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditMaterial", new { id = item.КодМатериал }) |
+            @Html.ActionLink("Удалить", "DeleteMaterial", new { id = item.КодМатериал })
+        </td>
+    </tr>
+}
+
+</table>

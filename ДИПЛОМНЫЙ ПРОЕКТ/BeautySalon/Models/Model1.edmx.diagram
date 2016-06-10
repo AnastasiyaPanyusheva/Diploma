@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="fb339bcae0704d649a29d87ff29ac302" Name="Diagram1" ZoomLevel="65">
+        <EntityTypeShape EntityType="AnastasiaModel.Call" Width="1.5" PointX="2.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Guestbook" Width="1.5" PointX="0.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.sysdiagram" Width="1.5" PointX="0.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Акция" Width="1.5" PointX="5.25" PointY="10.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ГруппаМатериалов" Width="1.5" PointX="6" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Должность" Width="1.5" PointX="0.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Запись" Width="1.5" PointX="7.5" PointY="6.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Заявка" Width="1.5" PointX="7.5" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.КатегорияУслуги" Width="1.5" PointX="3" PointY="20.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Клиент" Width="1.5" PointX="5.25" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.КтоЧемЗанимается" Width="1.5" PointX="11.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Материал" Width="1.5" PointX="8.25" PointY="0.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОплатаУслуг" Width="1.5" PointX="9.75" PointY="10.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Пользователь" Width="1.5" PointX="11.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Поставщик" Width="1.5" PointX="6" PointY="23.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Приход" Width="1.5" PointX="8.25" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Разряды" Width="1.5" PointX="0.75" PointY="4.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Расход" Width="1.5" PointX="10.5" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.СоставПрихода" Width="1.5" PointX="10.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Сотрудник" Width="1.5" PointX="5.25" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Табель" Width="1.5" PointX="7.5" PointY="14.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ТаблицаВремени" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Тариф" Width="1.5" PointX="3" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Услуга" Width="1.5" PointX="5.25" PointY="19.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.АкцияЗапрос" Width="1.5" PointX="11.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ГруппаМатериаловЗапрос" Width="1.5" PointX="12.75" PointY="7.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ДОЛГклиента" Width="1.5" PointX="13.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ДолжностьЗапрос" Width="1.5" PointX="13.75" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ЗаписьЗапрос" Width="1.5" PointX="13.75" PointY="13.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ЗаписьЗапрос1" Width="1.5" PointX="0.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.КатегорияУслугиЗапрос" Width="1.5" PointX="14.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.КлиентЗапрос" Width="1.5" PointX="9.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.КтоЧемЗанимаетсяЗапрос" Width="1.5" PointX="15.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.МастерЗаписи" Width="1.5" PointX="15.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.МастерОказатьУслуги" Width="1.5" PointX="15.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.МатериалЗапрос" Width="1.5" PointX="11.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОказУслугиЗапрос" Width="1.5" PointX="15.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" Width="1.5" PointX="13.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОплатаУслугЗапрос" Width="1.5" PointX="15.75" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОПЛАЧЕНОклиентом" Width="1.5" PointX="16.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.Остаток" Width="1.5" PointX="17.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОТЧЕТпоАкции" Width="1.5" PointX="17.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ОТЧЕТпоСотруднику" Width="1.5" PointX="17.75" PointY="12.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ПолучитьДолжностьСотрудника" Width="1.5" PointX="17.75" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ПользовательЗапрос" Width="1.5" PointX="17.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ПоставщикЗапрос" Width="1.5" PointX="18.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ПриходЗапрос" Width="1.5" PointX="9.75" PointY="20.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.РазрядЗапрос" Width="1.5" PointX="19.75" PointY="2.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.РасходЗапрос" Width="1.5" PointX="19.75" PointY="8.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.СоставПриходаЗапрос" Width="1.5" PointX="19.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.СотрЗапрос" Width="1.5" PointX="11.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.СотрудникЗапрос" Width="1.5" PointX="19.75" PointY="14.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ТабельЗапрос" Width="1.5" PointX="13.75" PointY="21.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ТаблицаВремениЗапрос" Width="1.5" PointX="19.75" PointY="19.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.ТарифЗапрос" Width="1.5" PointX="20.75" PointY="5.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="AnastasiaModel.УслугаЗапрос" Width="1.5" PointX="15.75" PointY="22.125" IsExpanded="true" />
+        <AssociationConnector Association="AnastasiaModel.FK_Запись_Акция" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Материал_ГруппаМатериалов" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Тариф_Должность1" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Запись_Клиент" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Запись_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Запись_ТаблицаВремени" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Запись_Услуга" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_ОплатаУслуг_Запись" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Заявка_Услуга" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Услуга_КатегорияУслуги" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Расход_Материал" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_СоставПрихода_Материал" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Приход_Поставщик" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_СоставПрихода_Приход" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Тариф_Разряды" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Расход_Сотрудник" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Сотрудник_Тариф" ManuallyRouted="false" />
+        <AssociationConnector Association="AnastasiaModel.FK_Табель_Сотрудник" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

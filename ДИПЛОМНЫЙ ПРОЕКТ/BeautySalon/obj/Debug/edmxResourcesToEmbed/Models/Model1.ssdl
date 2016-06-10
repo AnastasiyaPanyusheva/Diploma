@@ -1,0 +1,1601 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="Хранилище AnastasiaModel" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="Call">
+    <Key>
+      <PropertyRef Name="IdCall" />
+    </Key>
+    <Property Name="IdCall" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Телефон" Type="nvarchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="Guestbook">
+    <Key>
+      <PropertyRef Name="IdGuest" />
+    </Key>
+    <Property Name="IdGuest" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Сообщение" Type="nvarchar" MaxLength="1000" Nullable="false" />
+    <Property Name="Дата" Type="datetime" Nullable="false" />
+  </EntityType>
+  <EntityType Name="sysdiagrams">
+    <Key>
+      <PropertyRef Name="diagram_id" />
+    </Key>
+    <Property Name="name" Type="nvarchar" MaxLength="128" Nullable="false" />
+    <Property Name="principal_id" Type="int" Nullable="false" />
+    <Property Name="diagram_id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="version" Type="int" />
+    <Property Name="definition" Type="varbinary(max)" />
+  </EntityType>
+  <EntityType Name="Акция">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодАкция" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НазваниеАкция" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаНачала" Type="date" />
+    <Property Name="ДатаОкончания" Type="date" />
+    <Property Name="Скидка" Type="int" />
+  </EntityType>
+  <EntityType Name="ГруппаМатериалов">
+    <Key>
+      <PropertyRef Name="КодГруппа" />
+    </Key>
+    <Property Name="КодГруппа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеГруппа" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Должность">
+    <Key>
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодДолжность" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Должность" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Запись">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="КодВремя" Type="int" />
+    <Property Name="КодКлиент" Type="int" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="КодАкция" Type="int" />
+    <Property Name="КодУслуга" Type="int" />
+  </EntityType>
+  <EntityType Name="Заявка">
+    <Key>
+      <PropertyRef Name="КодЗаявки" />
+    </Key>
+    <Property Name="КодЗаявки" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Имя" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Дата" Type="datetime" Nullable="false" />
+    <Property Name="КодУслуга" Type="int" Nullable="false" />
+    <Property Name="Телефон" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Email" Type="nvarchar" MaxLength="50" Nullable="false" />
+    <Property Name="Примечание" Type="nvarchar" MaxLength="1000" />
+  </EntityType>
+  <EntityType Name="КатегорияУслуги">
+    <Key>
+      <PropertyRef Name="КодКатегория" />
+    </Key>
+    <Property Name="КодКатегория" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеКатегория" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Клиент">
+    <Key>
+      <PropertyRef Name="КодКлиент" />
+    </Key>
+    <Property Name="КодКлиент" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="Пол" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаРожденияКлиент" Type="date" />
+    <Property Name="ТелефонКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаЗаполнения" Type="date" />
+    <Property Name="ПримечаниеКлиент" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="КтоЧемЗанимается">
+    <Key>
+      <PropertyRef Name="КодЧе" />
+    </Key>
+    <Property Name="КодЧе" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодДолжность" Type="int" />
+    <Property Name="КодКатегория" Type="int" />
+  </EntityType>
+  <EntityType Name="Материал">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеМатериал" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодГруппа" Type="int" />
+  </EntityType>
+  <EntityType Name="ОплатаУслуг">
+    <Key>
+      <PropertyRef Name="КодОплата" />
+    </Key>
+    <Property Name="КодОплата" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодЗапись" Type="int" />
+    <Property Name="ОплатаКлиента" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="Пользователь">
+    <Key>
+      <PropertyRef Name="КодПользователя" />
+    </Key>
+    <Property Name="КодПользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Пользователь" Type="nvarchar" MaxLength="50" />
+    <Property Name="Пароль" Type="int" />
+  </EntityType>
+  <EntityType Name="Поставщик">
+    <Key>
+      <PropertyRef Name="КодПоставщик" />
+    </Key>
+    <Property Name="КодПоставщик" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="ТелефонПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailПоставщик" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Приход">
+    <Key>
+      <PropertyRef Name="КодПриход" />
+    </Key>
+    <Property Name="КодПриход" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодПоставщик" Type="int" />
+    <Property Name="ДатаПриход" Type="date" />
+  </EntityType>
+  <EntityType Name="Разряды">
+    <Key>
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодРазряд" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Разряд" Type="int" />
+  </EntityType>
+  <EntityType Name="Расход">
+    <Key>
+      <PropertyRef Name="КодРасход" />
+    </Key>
+    <Property Name="КодРасход" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодМатериал" Type="int" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="КоличествоРасход" Type="int" />
+    <Property Name="ДатаРасход" Type="date" />
+  </EntityType>
+  <EntityType Name="СоставПрихода">
+    <Key>
+      <PropertyRef Name="КодЕдиницы" />
+    </Key>
+    <Property Name="КодЕдиницы" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодПриход" Type="int" />
+    <Property Name="КодМатериал" Type="int" />
+    <Property Name="КоличествоПриход" Type="int" />
+    <Property Name="ЦенаМатериал" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="Сотрудник">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+    </Key>
+    <Property Name="КодСотрудник" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодТариф" Type="int" />
+    <Property Name="ТелефонСотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресСотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаРожденияСотрудник" Type="date" />
+    <Property Name="ПримечаниеСотрудник" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Табель">
+    <Key>
+      <PropertyRef Name="КодТабель" />
+    </Key>
+    <Property Name="КодТабель" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="ДатаВыхода" Type="date" />
+    <Property Name="КоличествоОтработанныхЧасов" Type="int" />
+  </EntityType>
+  <EntityType Name="ТаблицаВремени">
+    <Key>
+      <PropertyRef Name="КодВремя" />
+    </Key>
+    <Property Name="КодВремя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <EntityType Name="Тариф">
+    <Key>
+      <PropertyRef Name="КодТариф" />
+    </Key>
+    <Property Name="КодТариф" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодРазряд" Type="int" />
+    <Property Name="КодДолжность" Type="int" />
+    <Property Name="Ставка" Type="smallmoney" />
+  </EntityType>
+  <EntityType Name="Услуга">
+    <Key>
+      <PropertyRef Name="КодУслуга" />
+    </Key>
+    <Property Name="КодУслуга" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеУслуга" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодКатегория" Type="int" />
+    <Property Name="ЦенаУслуги" Type="smallmoney" />
+    <Property Name="Описание" Type="nvarchar(max)" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.АкцияЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="АкцияЗапрос">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодАкция" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НазваниеАкция" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаНачала" Type="date" />
+    <Property Name="ДатаОкончания" Type="date" />
+    <Property Name="Скидка" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.ВедомостьПриходовМатериалов" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ВедомостьПриходовМатериалов">
+          <Property Name="Дата прихода" Type="date" />
+          <Property Name="Поставщик" Type="nvarchar" MaxLength="50" />
+          <Property Name="Материал" Type="nvarchar" MaxLength="50" />
+          <Property Name="Количество" Type="int" />
+          <Property Name="Цена материала" Type="smallmoney" />
+          <Property Name="Сумма прихода" Type="smallmoney" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ГруппаМатериаловЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ГруппаМатериаловЗапрос">
+    <Key>
+      <PropertyRef Name="КодГруппа" />
+    </Key>
+    <Property Name="КодГруппа" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеГруппа" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ДОЛГклиента" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ДОЛГклиента">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="Счет" Type="money" />
+    <Property Name="Оплачено" Type="money" />
+    <Property Name="Долг" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.Должники" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="Должники">
+          <Property Name="Клиент" Type="nvarchar" MaxLength="50" />
+          <Property Name="Expr1" Type="money" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ДолжностьЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ДолжностьЗапрос">
+    <Key>
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодДолжность" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Должность" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ЗаписьЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ЗаписьЗапрос">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="КодВремя" Type="int" />
+    <Property Name="КодКлиент" Type="int" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="КодАкция" Type="int" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="Скидка" Type="int" />
+    <Property Name="НаименованиеУслуга" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ЗаписьЗапрос1" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ЗаписьЗапрос1">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="КодВремя" Type="int" />
+    <Property Name="КодКлиент" Type="int" />
+    <Property Name="КодДолжность" Type="int" Nullable="false" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="КодАкция" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.КатегорияУслугиЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="КатегорияУслугиЗапрос">
+    <Key>
+      <PropertyRef Name="КодКатегория" />
+    </Key>
+    <Property Name="КодКатегория" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеКатегория" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.КлиентЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="КлиентЗапрос">
+    <Key>
+      <PropertyRef Name="КодКлиент" />
+    </Key>
+    <Property Name="КодКлиент" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="Пол" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаРожденияКлиент" Type="date" />
+    <Property Name="ТелефонКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailКлиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаЗаполнения" Type="date" />
+    <Property Name="ПримечаниеКлиент" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.КтоЧемЗанимаетсяЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="КтоЧемЗанимаетсяЗапрос">
+    <Key>
+      <PropertyRef Name="КодЧе" />
+    </Key>
+    <Property Name="КодЧе" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодДолжность" Type="int" />
+    <Property Name="КодКатегория" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.МастерЗаписи" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="МастерЗаписи">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодСотрудник" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.МастерОказатьУслуги" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="МастерОказатьУслуги">
+    <Key>
+      <PropertyRef Name="КодОказаннаяУслуга" />
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодОказаннаяУслуга" Type="int" Nullable="false" />
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="НаименованиеУслуга" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодСотрудник" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.МатериалЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="МатериалЗапрос">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеМатериал" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодГруппа" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.ОбщийРасход" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ОбщийРасход">
+          <Property Name="НаименованиеМатериал" Type="nvarchar" MaxLength="50" />
+          <Property Name="КоличествоРасход" Type="int" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОказУслугиЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОказУслугиЗапрос">
+    <Key>
+      <PropertyRef Name="КодОказаннаяУслуга" />
+    </Key>
+    <Property Name="КодОказаннаяУслуга" Type="int" Nullable="false" />
+    <Property Name="КодЗапись" Type="int" />
+    <Property Name="КодУслуга" Type="int" />
+    <Property Name="НаименованиеУслуга" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="СтоимостьУслуг" Type="money" />
+    <Property Name="КодАкция" Type="int" Nullable="false" />
+    <Property Name="Скидка" Type="int" />
+    <Property Name="ОкончательнаяСтоимость" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОплатаУслугЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОплатаУслугЗапрос">
+    <Key>
+      <PropertyRef Name="КодОплата" />
+    </Key>
+    <Property Name="КодОплата" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодЗапись" Type="int" />
+    <Property Name="ОплатаКлиента" Type="float" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОПЛАЧЕНОклиентом" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОПЛАЧЕНОклиентом">
+    <Key>
+      <PropertyRef Name="КодЗапись" />
+    </Key>
+    <Property Name="КодЗапись" Type="int" Nullable="false" />
+    <Property Name="Счет" Type="money" />
+    <Property Name="Оплачено" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.Остаток" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="Остаток">
+    <Key>
+      <PropertyRef Name="КодМатериал" />
+    </Key>
+    <Property Name="КодМатериал" Type="int" Nullable="false" />
+    <Property Name="НаименованиеМатериал" Type="nvarchar" MaxLength="50" />
+    <Property Name="СуммаПрихода" Type="int" />
+    <Property Name="СуммаРасхода" Type="int" />
+    <Property Name="Остаток" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОТЧЕТпоАкции" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОТЧЕТпоАкции">
+    <Key>
+      <PropertyRef Name="КодАкция" />
+    </Key>
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+    <Property Name="СтоимостьУслуг" Type="money" />
+    <Property Name="Скидка" Type="int" />
+    <Property Name="ОкончательнаяСтоимость" Type="money" />
+    <Property Name="КодАкция" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ОТЧЕТпоСотруднику" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ОТЧЕТпоСотруднику">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+    </Key>
+    <Property Name="КодСотрудник" Type="int" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="Должность" Type="nvarchar" MaxLength="50" />
+    <Property Name="Разряд" Type="int" />
+    <Property Name="Ставка" Type="smallmoney" />
+    <Property Name="ДатаЗапись" Type="date" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+    <Property Name="ФИОклиент" Type="nvarchar" MaxLength="50" />
+    <Property Name="СтоимостьУслуг" Type="money" />
+    <Property Name="Скидка" Type="int" />
+    <Property Name="ОкончательнаяСтоимость" Type="money" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ПолучитьДолжностьСотрудника" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ПолучитьДолжностьСотрудника">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="КодСотрудник" Type="int" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодДолжность" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ПользовательЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ПользовательЗапрос">
+    <Key>
+      <PropertyRef Name="КодПользователя" />
+    </Key>
+    <Property Name="КодПользователя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Пользователь" Type="nvarchar" MaxLength="50" />
+    <Property Name="Пароль" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ПоставщикЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ПоставщикЗапрос">
+    <Key>
+      <PropertyRef Name="КодПоставщик" />
+    </Key>
+    <Property Name="КодПоставщик" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="ТелефонПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресПоставщик" Type="nvarchar" MaxLength="50" />
+    <Property Name="EmailПоставщик" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ПриходЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ПриходЗапрос">
+    <Key>
+      <PropertyRef Name="КодПриход" />
+    </Key>
+    <Property Name="КодПриход" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодПоставщик" Type="int" />
+    <Property Name="ДатаПриход" Type="date" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.ПРОВЕРКАсвободногоВремени" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="ПРОВЕРКАсвободногоВремени">
+          <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.РазрядЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="РазрядЗапрос">
+    <Key>
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодРазряд" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Разряд" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.РасходЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="РасходЗапрос">
+    <Key>
+      <PropertyRef Name="КодРасход" />
+    </Key>
+    <Property Name="КодРасход" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодМатериал" Type="int" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="КоличествоРасход" Type="int" />
+    <Property Name="ДатаРасход" Type="date" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.РасчетЗАРПЛАТЫ" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="РасчетЗАРПЛАТЫ">
+          <Property Name="ДатаВыхода" Type="date" />
+          <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+          <Property Name="Должность" Type="nvarchar" MaxLength="50" />
+          <Property Name="Разряд" Type="int" />
+          <Property Name="Ставка" Type="smallmoney" />
+          <Property Name="КоличествоОтработанныхЧасов" Type="int" />
+          <Property Name="Зарплата" Type="smallmoney" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.СоставПриходаЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="СоставПриходаЗапрос">
+    <Key>
+      <PropertyRef Name="КодЕдиницы" />
+    </Key>
+    <Property Name="КодЕдиницы" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодПриход" Type="int" />
+    <Property Name="КодМатериал" Type="int" />
+    <Property Name="КоличествоПриход" Type="int" />
+    <Property Name="ЦенаМатериал" Type="smallmoney" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.СотрЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="СотрЗапрос">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+    </Key>
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодСотрудник" Type="int" Nullable="false" />
+    <Property Name="КодДолжность" Type="int" Nullable="false" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.СотрудникЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="СотрудникЗапрос">
+    <Key>
+      <PropertyRef Name="КодСотрудник" />
+      <PropertyRef Name="КодДолжность" />
+      <PropertyRef Name="КодРазряд" />
+    </Key>
+    <Property Name="КодСотрудник" Type="int" Nullable="false" />
+    <Property Name="ФИОсотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодТариф" Type="int" />
+    <Property Name="ТелефонСотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="АдресСотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="ДатаРожденияСотрудник" Type="date" />
+    <Property Name="ПримечаниеСотрудник" Type="nvarchar" MaxLength="50" />
+    <Property Name="Должность" Type="nvarchar" MaxLength="50" />
+    <Property Name="Разряд" Type="int" />
+    <Property Name="КодДолжность" Type="int" Nullable="false" />
+    <Property Name="КодРазряд" Type="int" Nullable="false" />
+    <Property Name="Ставка" Type="smallmoney" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.СуммаПрихода" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="СуммаПрихода">
+          <Property Name="КодМатериал" Type="int" />
+          <Property Name="НаименованиеМатериал" Type="nvarchar" MaxLength="50" />
+          <Property Name="СуммаПрихода" Type="int" />
+          <Property Name="СтоимостьПриход" Type="money" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6013: Первичный ключ в таблице или представлении "Anastasia.dbo.СуммаРасхода" не определен, его не удалось вывести. Эта таблица или представление исключены. Чтобы использовать сущность, необходимо проверить схему, добавить правильные ключи и раскомментировать ее.
+        <EntityType Name="СуммаРасхода">
+          <Property Name="КодМатериал" Type="int" />
+          <Property Name="СуммаРасхода" Type="int" />
+        </EntityType>-->
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ТабельЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ТабельЗапрос">
+    <Key>
+      <PropertyRef Name="КодТабель" />
+    </Key>
+    <Property Name="КодТабель" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодСотрудник" Type="int" />
+    <Property Name="ДатаВыхода" Type="date" />
+    <Property Name="КоличествоОтработанныхЧасов" Type="int" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ТаблицаВремениЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ТаблицаВремениЗапрос">
+    <Key>
+      <PropertyRef Name="КодВремя" />
+    </Key>
+    <Property Name="КодВремя" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="ЗначениеВремя" Type="nchar" MaxLength="10" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.ТарифЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="ТарифЗапрос">
+    <Key>
+      <PropertyRef Name="КодТариф" />
+    </Key>
+    <Property Name="КодТариф" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="КодРазряд" Type="int" />
+    <Property Name="КодДолжность" Type="int" />
+    <Property Name="Ставка" Type="smallmoney" />
+  </EntityType>
+  <!--Ошибки, обнаруженные при создании:
+предупреждение 6002: В таблице или представлении "Anastasia.dbo.УслугаЗапрос" не определен первичный ключ. Ключ был выведен, а определение таблицы или представления было создано в режиме только для чтения.-->
+  <EntityType Name="УслугаЗапрос">
+    <Key>
+      <PropertyRef Name="КодУслуга" />
+    </Key>
+    <Property Name="КодУслуга" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="НаименованиеУслуга" Type="nvarchar" MaxLength="50" />
+    <Property Name="КодКатегория" Type="int" />
+    <Property Name="ЦенаУслуги" Type="smallmoney" />
+    <Property Name="Описание" Type="nvarchar(max)" />
+  </EntityType>
+  <Association Name="FK_Запись_Акция">
+    <End Role="Акция" Type="Self.Акция" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Акция">
+        <PropertyRef Name="КодАкция" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодАкция" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Клиент">
+    <End Role="Клиент" Type="Self.Клиент" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Клиент">
+        <PropertyRef Name="КодКлиент" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодКлиент" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_ТаблицаВремени">
+    <End Role="ТаблицаВремени" Type="Self.ТаблицаВремени" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ТаблицаВремени">
+        <PropertyRef Name="КодВремя" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодВремя" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Запись_Услуга">
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="0..1" />
+    <End Role="Запись" Type="Self.Запись" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуга">
+        <PropertyRef Name="КодУслуга" />
+      </Principal>
+      <Dependent Role="Запись">
+        <PropertyRef Name="КодУслуга" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Заявка_Услуга">
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="1" />
+    <End Role="Заявка" Type="Self.Заявка" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Услуга">
+        <PropertyRef Name="КодУслуга" />
+      </Principal>
+      <Dependent Role="Заявка">
+        <PropertyRef Name="КодУслуга" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Материал_ГруппаМатериалов">
+    <End Role="ГруппаМатериалов" Type="Self.ГруппаМатериалов" Multiplicity="0..1" />
+    <End Role="Материал" Type="Self.Материал" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="ГруппаМатериалов">
+        <PropertyRef Name="КодГруппа" />
+      </Principal>
+      <Dependent Role="Материал">
+        <PropertyRef Name="КодГруппа" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_ОплатаУслуг_Запись">
+    <End Role="Запись" Type="Self.Запись" Multiplicity="0..1" />
+    <End Role="ОплатаУслуг" Type="Self.ОплатаУслуг" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Запись">
+        <PropertyRef Name="КодЗапись" />
+      </Principal>
+      <Dependent Role="ОплатаУслуг">
+        <PropertyRef Name="КодЗапись" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Приход_Поставщик">
+    <End Role="Поставщик" Type="Self.Поставщик" Multiplicity="0..1" />
+    <End Role="Приход" Type="Self.Приход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Поставщик">
+        <PropertyRef Name="КодПоставщик" />
+      </Principal>
+      <Dependent Role="Приход">
+        <PropertyRef Name="КодПоставщик" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Расход_Материал">
+    <End Role="Материал" Type="Self.Материал" Multiplicity="0..1" />
+    <End Role="Расход" Type="Self.Расход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Материал">
+        <PropertyRef Name="КодМатериал" />
+      </Principal>
+      <Dependent Role="Расход">
+        <PropertyRef Name="КодМатериал" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Расход_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Расход" Type="Self.Расход" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Расход">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СоставПрихода_Материал">
+    <End Role="Материал" Type="Self.Материал" Multiplicity="0..1" />
+    <End Role="СоставПрихода" Type="Self.СоставПрихода" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Материал">
+        <PropertyRef Name="КодМатериал" />
+      </Principal>
+      <Dependent Role="СоставПрихода">
+        <PropertyRef Name="КодМатериал" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_СоставПрихода_Приход">
+    <End Role="Приход" Type="Self.Приход" Multiplicity="0..1" />
+    <End Role="СоставПрихода" Type="Self.СоставПрихода" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Приход">
+        <PropertyRef Name="КодПриход" />
+      </Principal>
+      <Dependent Role="СоставПрихода">
+        <PropertyRef Name="КодПриход" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Сотрудник_Тариф">
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="0..1" />
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Тариф">
+        <PropertyRef Name="КодТариф" />
+      </Principal>
+      <Dependent Role="Сотрудник">
+        <PropertyRef Name="КодТариф" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Табель_Сотрудник">
+    <End Role="Сотрудник" Type="Self.Сотрудник" Multiplicity="0..1" />
+    <End Role="Табель" Type="Self.Табель" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Сотрудник">
+        <PropertyRef Name="КодСотрудник" />
+      </Principal>
+      <Dependent Role="Табель">
+        <PropertyRef Name="КодСотрудник" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Тариф_Должность1">
+    <End Role="Должность" Type="Self.Должность" Multiplicity="0..1" />
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Должность">
+        <PropertyRef Name="КодДолжность" />
+      </Principal>
+      <Dependent Role="Тариф">
+        <PropertyRef Name="КодДолжность" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Тариф_Разряды">
+    <End Role="Разряды" Type="Self.Разряды" Multiplicity="0..1" />
+    <End Role="Тариф" Type="Self.Тариф" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Разряды">
+        <PropertyRef Name="КодРазряд" />
+      </Principal>
+      <Dependent Role="Тариф">
+        <PropertyRef Name="КодРазряд" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Услуга_КатегорияУслуги">
+    <End Role="КатегорияУслуги" Type="Self.КатегорияУслуги" Multiplicity="0..1" />
+    <End Role="Услуга" Type="Self.Услуга" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="КатегорияУслуги">
+        <PropertyRef Name="КодКатегория" />
+      </Principal>
+      <Dependent Role="Услуга">
+        <PropertyRef Name="КодКатегория" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="fn_diagramobjects" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" ReturnType="int" />
+  <Function Name="SelectWithParam" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="date" Mode="In" />
+  </Function>
+  <Function Name="SelectWithParams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="date" Mode="In" />
+    <Parameter Name="Param2" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_alterdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_creatediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="version" Type="int" Mode="In" />
+    <Parameter Name="definition" Type="varbinary(max)" Mode="In" />
+  </Function>
+  <Function Name="sp_dropdiagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagramdefinition" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_helpdiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+  </Function>
+  <Function Name="sp_renamediagram" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="diagramname" Type="nvarchar" Mode="In" />
+    <Parameter Name="owner_id" Type="int" Mode="In" />
+    <Parameter Name="new_diagramname" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="sp_upgraddiagrams" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo" />
+  <Function Name="ВыручкаПоСотруднику" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="date" Mode="In" />
+    <Parameter Name="Param2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьАкция" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НазваниеАкция" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаНачала" Type="date" Mode="In" />
+    <Parameter Name="ДатаОкончания" Type="date" Mode="In" />
+    <Parameter Name="Скидка" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьГруппаМатериалов" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НаименованиеГруппа" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьДолжность" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Должность" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьЗапись" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ДатаЗапись" Type="date" Mode="In" />
+    <Parameter Name="КодВремя" Type="int" Mode="In" />
+    <Parameter Name="КодКлиент" Type="int" Mode="In" />
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="КодАкция" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьКатегорияУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НаименованиеКатегория" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьКлиент" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ФИОклиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="Пол" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаРожденияКлиент" Type="date" Mode="In" />
+    <Parameter Name="ТелефонКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаЗаполнения" Type="date" Mode="In" />
+    <Parameter Name="ПримечаниеКлиент" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьКтоЧемЗанимается" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодДолжность" Type="int" Mode="In" />
+    <Parameter Name="КодКатегория" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьМатериал" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НаименованиеМатериал" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодГруппа" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьОказанныеУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+    <Parameter Name="КодУслуга" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьОплата" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+    <Parameter Name="ОплатаКлиента" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьПользователь" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Пользователь" Type="nvarchar" Mode="In" />
+    <Parameter Name="Пароль" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьПоставщик" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НаименованиеПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="ТелефонПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailПоставщик" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьПриход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПоставщик" Type="int" Mode="In" />
+    <Parameter Name="ДатаПриход" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьРазряды" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Разряд" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьРасход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="КоличествоРасход" Type="int" Mode="In" />
+    <Parameter Name="ДатаРасход" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьСоставПрихода" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПриход" Type="int" Mode="In" />
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+    <Parameter Name="КоличествоПриход" Type="int" Mode="In" />
+    <Parameter Name="ЦенаМатериал" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьСотрудник" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ФИОсотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодТариф" Type="int" Mode="In" />
+    <Parameter Name="ТелефонСотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресСотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаРожденияСотрудник" Type="date" Mode="In" />
+    <Parameter Name="ПримечаниеСотрудник" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьТабель" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="ДатаВыхода" Type="date" Mode="In" />
+    <Parameter Name="КоличествоОтработанныхЧасов" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьТаблицаВремени" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="ЗначениеВремя" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьТариф" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодРазряд" Type="int" Mode="In" />
+    <Parameter Name="КодДолжность" Type="int" Mode="In" />
+    <Parameter Name="Ставка" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ДобавитьУслуга" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="НаименованиеУслуга" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодКатегория" Type="int" Mode="In" />
+    <Parameter Name="ЦенаУслуги" Type="smallmoney" Mode="In" />
+    <Parameter Name="Описание" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ЗАРПЛАТАзаМесяц" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Month" Type="int" Mode="In" />
+    <Parameter Name="Year" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьАкция" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодАкция" Type="int" Mode="In" />
+    <Parameter Name="НазваниеАкция" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаНачала" Type="date" Mode="In" />
+    <Parameter Name="ДатаОкончания" Type="date" Mode="In" />
+    <Parameter Name="Скидка" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьГруппаМатериалов" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодГруппа" Type="int" Mode="In" />
+    <Parameter Name="НаименованиеГруппа" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьДолжность" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодДолжность" Type="int" Mode="In" />
+    <Parameter Name="Должность" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьЗапись" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+    <Parameter Name="ДатаЗапись" Type="date" Mode="In" />
+    <Parameter Name="КодВремя" Type="int" Mode="In" />
+    <Parameter Name="КодКлиент" Type="int" Mode="In" />
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="КодАкция" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьКатегорияУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодКатегория" Type="int" Mode="In" />
+    <Parameter Name="НаименованиеКатегория" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьКлиент" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодКлиент" Type="int" Mode="In" />
+    <Parameter Name="ФИОклиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="Пол" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаРожденияКлиент" Type="date" Mode="In" />
+    <Parameter Name="ТелефонКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailКлиент" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаЗаполнения" Type="date" Mode="In" />
+    <Parameter Name="ПримечаниеКлиент" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьМатериал" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+    <Parameter Name="НаименованиеМатериал" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодГруппа" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьОказанныеУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодОказаннаяУслуга" Type="int" Mode="In" />
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+    <Parameter Name="КодУслуга" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьОплата" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодОплата" Type="int" Mode="In" />
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+    <Parameter Name="ОплатаКлиента" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьПользователь" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПользователя" Type="int" Mode="In" />
+    <Parameter Name="Пользователь" Type="nvarchar" Mode="In" />
+    <Parameter Name="Пароль" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьПоставщик" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПоставщик" Type="int" Mode="In" />
+    <Parameter Name="НаименованиеПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="ТелефонПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресПоставщик" Type="nvarchar" Mode="In" />
+    <Parameter Name="EmailПоставщик" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьПриход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПриход" Type="int" Mode="In" />
+    <Parameter Name="КодПоставщик" Type="int" Mode="In" />
+    <Parameter Name="ДатаПриход" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьРазряды" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодРазряд" Type="int" Mode="In" />
+    <Parameter Name="Разряд" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьРасход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодРасход" Type="int" Mode="In" />
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="КоличествоРасход" Type="int" Mode="In" />
+    <Parameter Name="ДатаРасход" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьСоставПрихода" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЕдиницы" Type="int" Mode="In" />
+    <Parameter Name="КодПриход" Type="int" Mode="In" />
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+    <Parameter Name="КоличествоПриход" Type="int" Mode="In" />
+    <Parameter Name="ЦенаМатериал" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьСотрудник" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="ФИОсотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодТариф" Type="int" Mode="In" />
+    <Parameter Name="ТелефонСотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="АдресСотрудник" Type="nvarchar" Mode="In" />
+    <Parameter Name="ДатаРожденияСотрудник" Type="date" Mode="In" />
+    <Parameter Name="ПримечаниеСотрудник" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьТабель" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодТабель" Type="int" Mode="In" />
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+    <Parameter Name="ДатаВыхода" Type="date" Mode="In" />
+    <Parameter Name="КоличествоОтработанныхЧасов" Type="int" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьТаблицаВремени" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодВремя" Type="int" Mode="In" />
+    <Parameter Name="ЗначениеВремя" Type="nchar" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьТариф" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодТариф" Type="int" Mode="In" />
+    <Parameter Name="КодРазряд" Type="int" Mode="In" />
+    <Parameter Name="КодДолжность" Type="int" Mode="In" />
+    <Parameter Name="Ставка" Type="smallmoney" Mode="In" />
+  </Function>
+  <Function Name="ИзменитьУслуга" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодУслуга" Type="int" Mode="In" />
+    <Parameter Name="НаименованиеУслуга" Type="nvarchar" Mode="In" />
+    <Parameter Name="КодКатегория" Type="int" Mode="In" />
+    <Parameter Name="ЦенаУслуги" Type="smallmoney" Mode="In" />
+    <Parameter Name="Описание" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="КарточкаКлиента" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="КоличествоКлиентов" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="date" Mode="In" />
+    <Parameter Name="Param2" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ПолныйОтчетСотрудник" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="nvarchar" Mode="In" />
+    <Parameter Name="Param2" Type="date" Mode="In" />
+    <Parameter Name="Param3" Type="date" Mode="In" />
+  </Function>
+  <Function Name="ПолныйОтчетСотрудник2" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="Param1" Type="nvarchar" Mode="In" />
+  </Function>
+  <Function Name="УдалитьАкция" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодАкция" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьГруппаМатериалов" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодГруппа" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьДолжность" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодДолжность" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьЗапись" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЗапись" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьКатегорияУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодКатегория" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьКлиент" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодКлиент" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьМатериал" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодМатериал" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьОказанныеУслуги" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодОказаннаяУслуга" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьОплата" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодОплата" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьПользователь" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПользователя" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьПоставщик" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПоставщик" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьПриход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодПриход" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьРазряды" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодРазряд" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьРасход" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодРасход" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьСоставПрихода" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодЕдиницы" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьСотрудник" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодСотрудник" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьТабель" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодТабель" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьТаблицаВремени" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодВремя" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьТариф" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодТариф" Type="int" Mode="In" />
+  </Function>
+  <Function Name="УдалитьУслуга" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="КодУслуга" Type="int" Mode="In" />
+  </Function>
+  <EntityContainer Name="Хранилище AnastasiaModelContainer">
+    <EntitySet Name="Call" EntityType="Self.Call" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Guestbook" EntityType="Self.Guestbook" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="sysdiagrams" EntityType="Self.sysdiagrams" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Акция" EntityType="Self.Акция" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ГруппаМатериалов" EntityType="Self.ГруппаМатериалов" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Должность" EntityType="Self.Должность" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Запись" EntityType="Self.Запись" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Заявка" EntityType="Self.Заявка" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="КатегорияУслуги" EntityType="Self.КатегорияУслуги" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Клиент" EntityType="Self.Клиент" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="КтоЧемЗанимается" EntityType="Self.КтоЧемЗанимается" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Материал" EntityType="Self.Материал" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ОплатаУслуг" EntityType="Self.ОплатаУслуг" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Пользователь" EntityType="Self.Пользователь" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Поставщик" EntityType="Self.Поставщик" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Приход" EntityType="Self.Приход" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Разряды" EntityType="Self.Разряды" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Расход" EntityType="Self.Расход" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="СоставПрихода" EntityType="Self.СоставПрихода" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Сотрудник" EntityType="Self.Сотрудник" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Табель" EntityType="Self.Табель" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="ТаблицаВремени" EntityType="Self.ТаблицаВремени" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Тариф" EntityType="Self.Тариф" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Услуга" EntityType="Self.Услуга" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="АкцияЗапрос" EntityType="Self.АкцияЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [АкцияЗапрос].[КодАкция] AS [КодАкция], 
+    [АкцияЗапрос].[НазваниеАкция] AS [НазваниеАкция], 
+    [АкцияЗапрос].[ДатаНачала] AS [ДатаНачала], 
+    [АкцияЗапрос].[ДатаОкончания] AS [ДатаОкончания], 
+    [АкцияЗапрос].[Скидка] AS [Скидка]
+    FROM [dbo].[АкцияЗапрос] AS [АкцияЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ГруппаМатериаловЗапрос" EntityType="Self.ГруппаМатериаловЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ГруппаМатериаловЗапрос].[КодГруппа] AS [КодГруппа], 
+    [ГруппаМатериаловЗапрос].[НаименованиеГруппа] AS [НаименованиеГруппа]
+    FROM [dbo].[ГруппаМатериаловЗапрос] AS [ГруппаМатериаловЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ДОЛГклиента" EntityType="Self.ДОЛГклиента" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ДОЛГклиента].[КодЗапись] AS [КодЗапись], 
+    [ДОЛГклиента].[Счет] AS [Счет], 
+    [ДОЛГклиента].[Оплачено] AS [Оплачено], 
+    [ДОЛГклиента].[Долг] AS [Долг]
+    FROM [dbo].[ДОЛГклиента] AS [ДОЛГклиента]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ДолжностьЗапрос" EntityType="Self.ДолжностьЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ДолжностьЗапрос].[КодДолжность] AS [КодДолжность], 
+    [ДолжностьЗапрос].[Должность] AS [Должность]
+    FROM [dbo].[ДолжностьЗапрос] AS [ДолжностьЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ЗаписьЗапрос" EntityType="Self.ЗаписьЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ЗаписьЗапрос].[КодЗапись] AS [КодЗапись], 
+    [ЗаписьЗапрос].[ДатаЗапись] AS [ДатаЗапись], 
+    [ЗаписьЗапрос].[КодВремя] AS [КодВремя], 
+    [ЗаписьЗапрос].[КодКлиент] AS [КодКлиент], 
+    [ЗаписьЗапрос].[КодСотрудник] AS [КодСотрудник], 
+    [ЗаписьЗапрос].[КодАкция] AS [КодАкция], 
+    [ЗаписьЗапрос].[ЗначениеВремя] AS [ЗначениеВремя], 
+    [ЗаписьЗапрос].[ФИОклиент] AS [ФИОклиент], 
+    [ЗаписьЗапрос].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [ЗаписьЗапрос].[Скидка] AS [Скидка], 
+    [ЗаписьЗапрос].[НаименованиеУслуга] AS [НаименованиеУслуга]
+    FROM [dbo].[ЗаписьЗапрос] AS [ЗаписьЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ЗаписьЗапрос1" EntityType="Self.ЗаписьЗапрос1" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ЗаписьЗапрос1].[КодЗапись] AS [КодЗапись], 
+    [ЗаписьЗапрос1].[ДатаЗапись] AS [ДатаЗапись], 
+    [ЗаписьЗапрос1].[КодВремя] AS [КодВремя], 
+    [ЗаписьЗапрос1].[КодКлиент] AS [КодКлиент], 
+    [ЗаписьЗапрос1].[КодДолжность] AS [КодДолжность], 
+    [ЗаписьЗапрос1].[КодСотрудник] AS [КодСотрудник], 
+    [ЗаписьЗапрос1].[КодАкция] AS [КодАкция]
+    FROM [dbo].[ЗаписьЗапрос1] AS [ЗаписьЗапрос1]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="КатегорияУслугиЗапрос" EntityType="Self.КатегорияУслугиЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [КатегорияУслугиЗапрос].[КодКатегория] AS [КодКатегория], 
+    [КатегорияУслугиЗапрос].[НаименованиеКатегория] AS [НаименованиеКатегория]
+    FROM [dbo].[КатегорияУслугиЗапрос] AS [КатегорияУслугиЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="КлиентЗапрос" EntityType="Self.КлиентЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [КлиентЗапрос].[КодКлиент] AS [КодКлиент], 
+    [КлиентЗапрос].[ФИОклиент] AS [ФИОклиент], 
+    [КлиентЗапрос].[Пол] AS [Пол], 
+    [КлиентЗапрос].[ДатаРожденияКлиент] AS [ДатаРожденияКлиент], 
+    [КлиентЗапрос].[ТелефонКлиент] AS [ТелефонКлиент], 
+    [КлиентЗапрос].[АдресКлиент] AS [АдресКлиент], 
+    [КлиентЗапрос].[EmailКлиент] AS [EmailКлиент], 
+    [КлиентЗапрос].[ДатаЗаполнения] AS [ДатаЗаполнения], 
+    [КлиентЗапрос].[ПримечаниеКлиент] AS [ПримечаниеКлиент]
+    FROM [dbo].[КлиентЗапрос] AS [КлиентЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="КтоЧемЗанимаетсяЗапрос" EntityType="Self.КтоЧемЗанимаетсяЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [КтоЧемЗанимаетсяЗапрос].[КодЧе] AS [КодЧе], 
+    [КтоЧемЗанимаетсяЗапрос].[КодДолжность] AS [КодДолжность], 
+    [КтоЧемЗанимаетсяЗапрос].[КодКатегория] AS [КодКатегория]
+    FROM [dbo].[КтоЧемЗанимаетсяЗапрос] AS [КтоЧемЗанимаетсяЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="МастерЗаписи" EntityType="Self.МастерЗаписи" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [МастерЗаписи].[КодЗапись] AS [КодЗапись], 
+    [МастерЗаписи].[ДатаЗапись] AS [ДатаЗапись], 
+    [МастерЗаписи].[ЗначениеВремя] AS [ЗначениеВремя], 
+    [МастерЗаписи].[ФИОклиент] AS [ФИОклиент], 
+    [МастерЗаписи].[КодСотрудник] AS [КодСотрудник]
+    FROM [dbo].[МастерЗаписи] AS [МастерЗаписи]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="МастерОказатьУслуги" EntityType="Self.МастерОказатьУслуги" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [МастерОказатьУслуги].[КодОказаннаяУслуга] AS [КодОказаннаяУслуга], 
+    [МастерОказатьУслуги].[КодЗапись] AS [КодЗапись], 
+    [МастерОказатьУслуги].[НаименованиеУслуга] AS [НаименованиеУслуга], 
+    [МастерОказатьУслуги].[КодСотрудник] AS [КодСотрудник]
+    FROM [dbo].[МастерОказатьУслуги] AS [МастерОказатьУслуги]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="МатериалЗапрос" EntityType="Self.МатериалЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [МатериалЗапрос].[КодМатериал] AS [КодМатериал], 
+    [МатериалЗапрос].[НаименованиеМатериал] AS [НаименованиеМатериал], 
+    [МатериалЗапрос].[КодГруппа] AS [КодГруппа]
+    FROM [dbo].[МатериалЗапрос] AS [МатериалЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОказУслугиЗапрос" EntityType="Self.ОказУслугиЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОказУслугиЗапрос].[КодОказаннаяУслуга] AS [КодОказаннаяУслуга], 
+    [ОказУслугиЗапрос].[КодЗапись] AS [КодЗапись], 
+    [ОказУслугиЗапрос].[КодУслуга] AS [КодУслуга], 
+    [ОказУслугиЗапрос].[НаименованиеУслуга] AS [НаименованиеУслуга]
+    FROM [dbo].[ОказУслугиЗапрос] AS [ОказУслугиЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" EntityType="Self.ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[КодЗапись] AS [КодЗапись], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[ДатаЗапись] AS [ДатаЗапись], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[ФИОклиент] AS [ФИОклиент], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[СтоимостьУслуг] AS [СтоимостьУслуг], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[КодАкция] AS [КодАкция], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[Скидка] AS [Скидка], 
+    [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ].[ОкончательнаяСтоимость] AS [ОкончательнаяСтоимость]
+    FROM [dbo].[ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ] AS [ОКОНЧАТЕЛЬНАЯСТОИМОСТЬ]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОплатаУслугЗапрос" EntityType="Self.ОплатаУслугЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОплатаУслугЗапрос].[КодОплата] AS [КодОплата], 
+    [ОплатаУслугЗапрос].[КодЗапись] AS [КодЗапись], 
+    [ОплатаУслугЗапрос].[ОплатаКлиента] AS [ОплатаКлиента]
+    FROM [dbo].[ОплатаУслугЗапрос] AS [ОплатаУслугЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОПЛАЧЕНОклиентом" EntityType="Self.ОПЛАЧЕНОклиентом" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОПЛАЧЕНОклиентом].[КодЗапись] AS [КодЗапись], 
+    [ОПЛАЧЕНОклиентом].[Счет] AS [Счет], 
+    [ОПЛАЧЕНОклиентом].[Оплачено] AS [Оплачено]
+    FROM [dbo].[ОПЛАЧЕНОклиентом] AS [ОПЛАЧЕНОклиентом]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="Остаток" EntityType="Self.Остаток" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [Остаток].[КодМатериал] AS [КодМатериал], 
+    [Остаток].[НаименованиеМатериал] AS [НаименованиеМатериал], 
+    [Остаток].[СуммаПрихода] AS [СуммаПрихода], 
+    [Остаток].[СуммаРасхода] AS [СуммаРасхода], 
+    [Остаток].[Остаток] AS [Остаток]
+    FROM [dbo].[Остаток] AS [Остаток]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОТЧЕТпоАкции" EntityType="Self.ОТЧЕТпоАкции" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОТЧЕТпоАкции].[ФИОклиент] AS [ФИОклиент], 
+    [ОТЧЕТпоАкции].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [ОТЧЕТпоАкции].[ДатаЗапись] AS [ДатаЗапись], 
+    [ОТЧЕТпоАкции].[ЗначениеВремя] AS [ЗначениеВремя], 
+    [ОТЧЕТпоАкции].[СтоимостьУслуг] AS [СтоимостьУслуг], 
+    [ОТЧЕТпоАкции].[Скидка] AS [Скидка], 
+    [ОТЧЕТпоАкции].[ОкончательнаяСтоимость] AS [ОкончательнаяСтоимость], 
+    [ОТЧЕТпоАкции].[КодАкция] AS [КодАкция]
+    FROM [dbo].[ОТЧЕТпоАкции] AS [ОТЧЕТпоАкции]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ОТЧЕТпоСотруднику" EntityType="Self.ОТЧЕТпоСотруднику" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ОТЧЕТпоСотруднику].[КодСотрудник] AS [КодСотрудник], 
+    [ОТЧЕТпоСотруднику].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [ОТЧЕТпоСотруднику].[Должность] AS [Должность], 
+    [ОТЧЕТпоСотруднику].[Разряд] AS [Разряд], 
+    [ОТЧЕТпоСотруднику].[Ставка] AS [Ставка], 
+    [ОТЧЕТпоСотруднику].[ДатаЗапись] AS [ДатаЗапись], 
+    [ОТЧЕТпоСотруднику].[ЗначениеВремя] AS [ЗначениеВремя], 
+    [ОТЧЕТпоСотруднику].[ФИОклиент] AS [ФИОклиент], 
+    [ОТЧЕТпоСотруднику].[СтоимостьУслуг] AS [СтоимостьУслуг], 
+    [ОТЧЕТпоСотруднику].[Скидка] AS [Скидка], 
+    [ОТЧЕТпоСотруднику].[ОкончательнаяСтоимость] AS [ОкончательнаяСтоимость]
+    FROM [dbo].[ОТЧЕТпоСотруднику] AS [ОТЧЕТпоСотруднику]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ПолучитьДолжностьСотрудника" EntityType="Self.ПолучитьДолжностьСотрудника" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ПолучитьДолжностьСотрудника].[КодСотрудник] AS [КодСотрудник], 
+    [ПолучитьДолжностьСотрудника].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [ПолучитьДолжностьСотрудника].[КодДолжность] AS [КодДолжность]
+    FROM [dbo].[ПолучитьДолжностьСотрудника] AS [ПолучитьДолжностьСотрудника]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ПользовательЗапрос" EntityType="Self.ПользовательЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ПользовательЗапрос].[КодПользователя] AS [КодПользователя], 
+    [ПользовательЗапрос].[Пользователь] AS [Пользователь], 
+    [ПользовательЗапрос].[Пароль] AS [Пароль]
+    FROM [dbo].[ПользовательЗапрос] AS [ПользовательЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ПоставщикЗапрос" EntityType="Self.ПоставщикЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ПоставщикЗапрос].[КодПоставщик] AS [КодПоставщик], 
+    [ПоставщикЗапрос].[НаименованиеПоставщик] AS [НаименованиеПоставщик], 
+    [ПоставщикЗапрос].[ТелефонПоставщик] AS [ТелефонПоставщик], 
+    [ПоставщикЗапрос].[АдресПоставщик] AS [АдресПоставщик], 
+    [ПоставщикЗапрос].[EmailПоставщик] AS [EmailПоставщик]
+    FROM [dbo].[ПоставщикЗапрос] AS [ПоставщикЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ПриходЗапрос" EntityType="Self.ПриходЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ПриходЗапрос].[КодПриход] AS [КодПриход], 
+    [ПриходЗапрос].[КодПоставщик] AS [КодПоставщик], 
+    [ПриходЗапрос].[ДатаПриход] AS [ДатаПриход]
+    FROM [dbo].[ПриходЗапрос] AS [ПриходЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="РазрядЗапрос" EntityType="Self.РазрядЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [РазрядЗапрос].[КодРазряд] AS [КодРазряд], 
+    [РазрядЗапрос].[Разряд] AS [Разряд]
+    FROM [dbo].[РазрядЗапрос] AS [РазрядЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="РасходЗапрос" EntityType="Self.РасходЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [РасходЗапрос].[КодРасход] AS [КодРасход], 
+    [РасходЗапрос].[КодМатериал] AS [КодМатериал], 
+    [РасходЗапрос].[КодСотрудник] AS [КодСотрудник], 
+    [РасходЗапрос].[КоличествоРасход] AS [КоличествоРасход], 
+    [РасходЗапрос].[ДатаРасход] AS [ДатаРасход]
+    FROM [dbo].[РасходЗапрос] AS [РасходЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="СоставПриходаЗапрос" EntityType="Self.СоставПриходаЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [СоставПриходаЗапрос].[КодЕдиницы] AS [КодЕдиницы], 
+    [СоставПриходаЗапрос].[КодПриход] AS [КодПриход], 
+    [СоставПриходаЗапрос].[КодМатериал] AS [КодМатериал], 
+    [СоставПриходаЗапрос].[КоличествоПриход] AS [КоличествоПриход], 
+    [СоставПриходаЗапрос].[ЦенаМатериал] AS [ЦенаМатериал]
+    FROM [dbo].[СоставПриходаЗапрос] AS [СоставПриходаЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="СотрЗапрос" EntityType="Self.СотрЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [СотрЗапрос].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [СотрЗапрос].[КодСотрудник] AS [КодСотрудник], 
+    [СотрЗапрос].[КодДолжность] AS [КодДолжность]
+    FROM [dbo].[СотрЗапрос] AS [СотрЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="СотрудникЗапрос" EntityType="Self.СотрудникЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [СотрудникЗапрос].[КодСотрудник] AS [КодСотрудник], 
+    [СотрудникЗапрос].[ФИОсотрудник] AS [ФИОсотрудник], 
+    [СотрудникЗапрос].[КодТариф] AS [КодТариф], 
+    [СотрудникЗапрос].[ТелефонСотрудник] AS [ТелефонСотрудник], 
+    [СотрудникЗапрос].[АдресСотрудник] AS [АдресСотрудник], 
+    [СотрудникЗапрос].[ДатаРожденияСотрудник] AS [ДатаРожденияСотрудник], 
+    [СотрудникЗапрос].[ПримечаниеСотрудник] AS [ПримечаниеСотрудник], 
+    [СотрудникЗапрос].[Должность] AS [Должность], 
+    [СотрудникЗапрос].[Разряд] AS [Разряд], 
+    [СотрудникЗапрос].[КодДолжность] AS [КодДолжность], 
+    [СотрудникЗапрос].[КодРазряд] AS [КодРазряд], 
+    [СотрудникЗапрос].[Ставка] AS [Ставка]
+    FROM [dbo].[СотрудникЗапрос] AS [СотрудникЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ТабельЗапрос" EntityType="Self.ТабельЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ТабельЗапрос].[КодТабель] AS [КодТабель], 
+    [ТабельЗапрос].[КодСотрудник] AS [КодСотрудник], 
+    [ТабельЗапрос].[ДатаВыхода] AS [ДатаВыхода], 
+    [ТабельЗапрос].[КоличествоОтработанныхЧасов] AS [КоличествоОтработанныхЧасов]
+    FROM [dbo].[ТабельЗапрос] AS [ТабельЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ТаблицаВремениЗапрос" EntityType="Self.ТаблицаВремениЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ТаблицаВремениЗапрос].[КодВремя] AS [КодВремя], 
+    [ТаблицаВремениЗапрос].[ЗначениеВремя] AS [ЗначениеВремя]
+    FROM [dbo].[ТаблицаВремениЗапрос] AS [ТаблицаВремениЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="ТарифЗапрос" EntityType="Self.ТарифЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [ТарифЗапрос].[КодТариф] AS [КодТариф], 
+    [ТарифЗапрос].[КодРазряд] AS [КодРазряд], 
+    [ТарифЗапрос].[КодДолжность] AS [КодДолжность], 
+    [ТарифЗапрос].[Ставка] AS [Ставка]
+    FROM [dbo].[ТарифЗапрос] AS [ТарифЗапрос]</DefiningQuery>
+    </EntitySet>
+    <EntitySet Name="УслугаЗапрос" EntityType="Self.УслугаЗапрос" store:Type="Views" store:Schema="dbo">
+      <DefiningQuery>SELECT 
+    [УслугаЗапрос].[КодУслуга] AS [КодУслуга], 
+    [УслугаЗапрос].[НаименованиеУслуга] AS [НаименованиеУслуга], 
+    [УслугаЗапрос].[КодКатегория] AS [КодКатегория], 
+    [УслугаЗапрос].[ЦенаУслуги] AS [ЦенаУслуги], 
+    [УслугаЗапрос].[Описание] AS [Описание]
+    FROM [dbo].[УслугаЗапрос] AS [УслугаЗапрос]</DefiningQuery>
+    </EntitySet>
+    <AssociationSet Name="FK_Запись_Акция" Association="Self.FK_Запись_Акция">
+      <End Role="Акция" EntitySet="Акция" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Клиент" Association="Self.FK_Запись_Клиент">
+      <End Role="Клиент" EntitySet="Клиент" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Сотрудник" Association="Self.FK_Запись_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_ТаблицаВремени" Association="Self.FK_Запись_ТаблицаВремени">
+      <End Role="ТаблицаВремени" EntitySet="ТаблицаВремени" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Запись_Услуга" Association="Self.FK_Запись_Услуга">
+      <End Role="Услуга" EntitySet="Услуга" />
+      <End Role="Запись" EntitySet="Запись" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Заявка_Услуга" Association="Self.FK_Заявка_Услуга">
+      <End Role="Услуга" EntitySet="Услуга" />
+      <End Role="Заявка" EntitySet="Заявка" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Материал_ГруппаМатериалов" Association="Self.FK_Материал_ГруппаМатериалов">
+      <End Role="ГруппаМатериалов" EntitySet="ГруппаМатериалов" />
+      <End Role="Материал" EntitySet="Материал" />
+    </AssociationSet>
+    <AssociationSet Name="FK_ОплатаУслуг_Запись" Association="Self.FK_ОплатаУслуг_Запись">
+      <End Role="Запись" EntitySet="Запись" />
+      <End Role="ОплатаУслуг" EntitySet="ОплатаУслуг" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Приход_Поставщик" Association="Self.FK_Приход_Поставщик">
+      <End Role="Поставщик" EntitySet="Поставщик" />
+      <End Role="Приход" EntitySet="Приход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Расход_Материал" Association="Self.FK_Расход_Материал">
+      <End Role="Материал" EntitySet="Материал" />
+      <End Role="Расход" EntitySet="Расход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Расход_Сотрудник" Association="Self.FK_Расход_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Расход" EntitySet="Расход" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СоставПрихода_Материал" Association="Self.FK_СоставПрихода_Материал">
+      <End Role="Материал" EntitySet="Материал" />
+      <End Role="СоставПрихода" EntitySet="СоставПрихода" />
+    </AssociationSet>
+    <AssociationSet Name="FK_СоставПрихода_Приход" Association="Self.FK_СоставПрихода_Приход">
+      <End Role="Приход" EntitySet="Приход" />
+      <End Role="СоставПрихода" EntitySet="СоставПрихода" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Сотрудник_Тариф" Association="Self.FK_Сотрудник_Тариф">
+      <End Role="Тариф" EntitySet="Тариф" />
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Табель_Сотрудник" Association="Self.FK_Табель_Сотрудник">
+      <End Role="Сотрудник" EntitySet="Сотрудник" />
+      <End Role="Табель" EntitySet="Табель" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Тариф_Должность1" Association="Self.FK_Тариф_Должность1">
+      <End Role="Должность" EntitySet="Должность" />
+      <End Role="Тариф" EntitySet="Тариф" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Тариф_Разряды" Association="Self.FK_Тариф_Разряды">
+      <End Role="Разряды" EntitySet="Разряды" />
+      <End Role="Тариф" EntitySet="Тариф" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Услуга_КатегорияУслуги" Association="Self.FK_Услуга_КатегорияУслуги">
+      <End Role="КатегорияУслуги" EntitySet="КатегорияУслуги" />
+      <End Role="Услуга" EntitySet="Услуга" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

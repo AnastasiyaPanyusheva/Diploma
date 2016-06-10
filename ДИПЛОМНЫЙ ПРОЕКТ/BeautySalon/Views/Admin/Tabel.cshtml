@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BeautySalon.Models.Табель>
+
+@{
+    ViewBag.Title = "Табель";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Табель</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateTabel")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.ДатаВыхода)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.КоличествоОтработанныхЧасов)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Сотрудник.ФИОсотрудник)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаВыхода)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.КоличествоОтработанныхЧасов)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Сотрудник.ФИОсотрудник)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditTabel", new { id = item.КодТабель }) |
+            @Html.ActionLink("Удалить", "DeleteTabel", new { id = item.КодТабель })
+        </td>
+    </tr>
+}
+
+</table>

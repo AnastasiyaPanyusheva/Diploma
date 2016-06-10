@@ -1,0 +1,37 @@
+﻿@model IEnumerable<BeautySalon.Models.Call>
+
+@{
+    ViewBag.Title = "Вызовы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Перезвонить клиенту</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Имя)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Телефон)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Имя)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Телефон)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.IdCall }) |*@
+            @*@Html.ActionLink("Details", "Details", new { id=item.IdCall }) |*@
+            @Html.ActionLink("Удалить", "DeleteCall", new { id=item.IdCall })
+        </td>
+    </tr>
+}
+
+</table>

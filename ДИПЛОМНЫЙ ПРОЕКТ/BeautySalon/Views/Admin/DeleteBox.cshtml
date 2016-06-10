@@ -1,0 +1,41 @@
+﻿@model BeautySalon.Models.Приход
+
+@{
+    ViewBag.Title = "Удаление прихода";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление прихода</h2>
+
+<h3>Вы действительно хотите удалить приход?</h3>
+<div>
+    <h4>Приход</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ДатаПриход)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ДатаПриход)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Поставщик.НаименованиеПоставщик)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Поставщик.НаименованиеПоставщик)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "BoxComing")
+        </div>
+    }
+</div>

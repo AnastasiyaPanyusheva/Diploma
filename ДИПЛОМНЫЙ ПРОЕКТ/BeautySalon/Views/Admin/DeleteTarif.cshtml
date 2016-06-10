@@ -1,0 +1,48 @@
+﻿@model BeautySalon.Models.Тариф
+
+@{
+    ViewBag.Title = "Удаление тарифа";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление тарифа</h2>
+
+<h3>Вы действительно хотите удалить тариф?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Ставка)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Ставка)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Должность.Должность1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Должность.Должность1)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Разряды.КодРазряд)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Разряды.КодРазряд)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Tarif")
+        </div>
+    }
+</div>

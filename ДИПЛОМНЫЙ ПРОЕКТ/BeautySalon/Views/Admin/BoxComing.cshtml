@@ -1,0 +1,39 @@
+﻿@model IEnumerable<BeautySalon.Models.Приход>
+
+@{
+    ViewBag.Title = "Приход материалов";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Приход материалов</h2>
+
+<p>
+    @Html.ActionLink("Создать приход", "CreateBox")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Дата прихода
+        </th>
+        <th>
+            Поставщик
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.ДатаПриход)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Поставщик.НаименованиеПоставщик)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditBox", new { id = item.КодПриход }) |
+            @Html.ActionLink("Удалить", "DeleteBox", new { id = item.КодПриход })
+        </td>
+    </tr>
+}
+
+</table>

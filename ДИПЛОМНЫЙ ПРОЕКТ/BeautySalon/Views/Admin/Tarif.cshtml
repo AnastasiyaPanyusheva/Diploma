@@ -1,0 +1,45 @@
+﻿@model IEnumerable<BeautySalon.Models.Тариф>
+
+@{
+    ViewBag.Title = "Тарифы";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Тарифы</h2>
+
+<p>
+    @Html.ActionLink("Создать", "CreateTarif")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Ставка)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Должность.Должность1)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Разряды.КодРазряд)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Ставка)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Должность.Должность1)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Разряды.КодРазряд)
+        </td>
+        <td>
+            @Html.ActionLink("Изменить", "EditTarif", new { id=item.КодТариф }) |
+            @Html.ActionLink("Удалить", "DeleteTarif", new { id = item.КодТариф })
+        </td>
+    </tr>
+}
+
+</table>

@@ -1,0 +1,40 @@
+﻿@model BeautySalon.Models.Материал
+
+@{
+    ViewBag.Title = "Удаление материала";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Удаление материала</h2>
+
+<h3>Вы действительно хотите удалить материал?</h3>
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Наименование
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.НаименованиеМатериал)
+        </dd>
+
+        <dt>
+            Группа
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ГруппаМатериалов.НаименованиеГруппа)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Удалить" class="btn btn-default" /> |
+            @Html.ActionLink("Вернуться к списку", "Material")
+        </div>
+    }
+</div>
